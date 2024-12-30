@@ -1,24 +1,51 @@
+import { useParams } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import Titles from '../../components/Titles/Titles';
 import style from './Plant.module.css';
-import img from '../../assets/images/close-up-plants-garden.jpg';
-const AboutUs = () => {
+import useFetchPlants from '../../hooks/useFetchPlants';
+import Loader from '../../components/Loader/Loader';
+
+const Plant = () => {
+  const { plantId } = useParams<{ plantId: string }>();
+
+  // Usar o hook `useFetchPlants` para buscar os dados
+  const { data: plants, loading, error } = useFetchPlants('https://run.mocky.io/v3/5371015a-8bee-41cc-a419-3c9b71404b58');
+
+  if (loading) {
+    return (
+      <p>
+        <Loader />;
+      </p>
+    );
+  }
+
+  if (error) {
+    return <p style={{ color: 'red' }}>{error}</p>;
+  }
+
+  // Filtrar a planta com o ID correspondente
+  const plant = plants.find((p) => p.id === parseInt(plantId!, 10));
+
+  if (!plant) {
+    return <p>Planta não encontrada.</p>;
+  }
+
   return (
     <div className={style.container}>
       <section className={style.content}>
         <div className={style.imgContainer}>
-          <img src={img} alt="" />
+          <img src={plant.imgUrl} alt={plant.name} />
         </div>
         <div className={style.description}>
           <div className={style.title}>
-            <Titles titleText="Echinocereus cactus" />
-
-            <h2>A majestic addtion to you plant collection</h2>
+            <Titles titleText={plant.name} />
+            <h2>{plant.subtitle}</h2>
             <div className={style.labels}>
-              <span>label</span>
-              <span>label</span>
+              {plant.label.map((label, index) => (
+                <span key={index}>{label}</span>
+              ))}
             </div>
-            <p>$139.99</p>
+            <p>{plant.price}</p>
             <div>
               <Button text="Check out" />
             </div>
@@ -26,23 +53,16 @@ const AboutUs = () => {
           <div className={style.feat}>
             <h2>Features</h2>
             <ul>
-              <li>
-                <span>Species:&nbsp;</span>Echinocereus spp.
-              </li>
-              <li>
-                <span>mature size:&nbsp;</span>Varies by species, typically ranging from 4 to 12 inches (10-30 cm) in height.
-              </li>
-              <li>
-                <span>blooming season:&nbsp;</span>Typically spring or summer, with flowers lasting several days to weeks.
-              </li>
-              <li>
-                <span>pot size:&nbsp;</span>Available in various pot sizes to suit your preference and needs.
-              </li>
+              {plant.features.split('. ').map((feature, index) => (
+                <li key={index}>
+                  <span>{feature}</span>
+                </li>
+              ))}
             </ul>
           </div>
           <div className={style.info}>
             <h2>Description</h2>
-            <p>Ladyfinger cactus ("Echinocereus pentalophus) is also known as Alice, Devil's Fingers, and Dog Tail It needs bright sunlight, light fertilizer and is prone to root rot. The root system is shallow and weak. Aphids and mealybugs are also a danger Avoiding wet soil can help with success with a ladyfinger cactus</p>
+            <p>{plant.description}</p>
           </div>
         </div>
       </section>
@@ -50,4 +70,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default Plant;
