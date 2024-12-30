@@ -1,0 +1,24 @@
+.container {
+  height: calc(100vh - 5.2rem);
+  background-color: #f1f2ef;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background-image: url('../../assets/images/notfound.png');
+  background-size: cover;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  min-width: 70rem;
+}
+
+.content {
+  margin-left: 6.5rem;
+}
+
+.button {
+  width: fit-content;
+  height: fit-content;
+}

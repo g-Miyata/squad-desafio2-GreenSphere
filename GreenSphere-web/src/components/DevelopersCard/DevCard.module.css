@@ -1,0 +1,164 @@
+.card {
+  position: relative;
+  width: 350px;
+  height: 600px;
+  perspective: 1200px;
+  overflow: visible;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: ease-in-out 0.6s;
+}
+
+.card:hover {
+  scale: 1.1;
+}
+.cardFace {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.3);
+  transition: transform 0.6s ease-in-out;
+}
+
+.cardFront {
+  transform: rotateY(0deg);
+  background-color: #fff;
+}
+
+.cardBack {
+  transform: rotateY(180deg);
+  background-color: #4caf50;
+  color: white;
+}
+
+.flipped .cardFront {
+  transform: rotateY(-180deg);
+}
+
+.flipped .cardBack {
+  transform: rotateY(0deg);
+}
+
+.cardFront img {
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.cardFront h1,
+.cardBack h1 {
+  font-size: 1.8rem;
+  margin: 10px 0;
+  text-align: center;
+  color: #354733;
+}
+
+.cardFront p,
+.cardBack p {
+  text-align: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.icon img {
+  width: 4.5rem;
+  height: auto;
+}
+
+.icon p {
+  font-size: 1rem;
+  color: #354733;
+  text-transform: uppercase;
+}
+
+.btnContainer {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.card button {
+  margin-top: 1.2rem;
+  width: 100%;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  background-color: #354733;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #45a049;
+}
+
+.bContent {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+}
+.title {
+  margin-bottom: 1rem;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+.title p {
+  margin-bottom: 1rem;
+  color: #354733;
+  font-size: 0.6rem;
+  font-weight: bold;
+}
+.title hr {
+  border: none;
+  border-top: 0.1rem solid #354733;
+}
+
+.job {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #354733;
+  font-weight: bold;
+}
+.job img {
+  width: 8rem;
+  margin-bottom: 1rem;
+}
+.links {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 5rem;
+  margin-top: 15px;
+}
+.contentContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.links a {
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: #354733;
+}

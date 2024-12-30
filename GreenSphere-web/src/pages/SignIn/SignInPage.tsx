@@ -1,11 +1,20 @@
 import { SignInButton } from '@clerk/clerk-react';
-
+import style from './SignInPage.module.css';
+import video from '../../assets/videos/video.mp4';
+import logo from '../../assets/images/logo.svg';
 const SignInPage = () => {
   return (
-    <div>
-      <h1>Bem vindo a Green Sphere</h1>
-      <p>Faça login para acessar a loja</p>
-      <SignInButton mode="modal" forceRedirectUrl="/welcome" />
+    <div className={style.container}>
+      <video autoPlay muted loop src={video} />
+      <div className={style.content}>
+        <p>Welcome!</p>
+        <img src={logo} alt="Green Sphere Logo" />
+        <h1>Green Sphere</h1>
+        <p>Login in to access the store</p>
+        <SignInButton mode="modal" forceRedirectUrl="/welcome">
+          <button>Login</button>
+        </SignInButton>
+      </div>
     </div>
   );
 };

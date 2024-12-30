@@ -16,11 +16,11 @@ const Titles: React.FC<TextProps> = ({ titleText, highlightText, text }) => {
       </h1>
       {text && (
         <p className={styles.text}>
-          {text.split('\n').map((line) => (
-            <>
+          {text.split('\n').map((line, index) => (
+            <span key={`line-${index}`}>
               {line}
               <br />
-            </>
+            </span>
           ))}
         </p>
       )}

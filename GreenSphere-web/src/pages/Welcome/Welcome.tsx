@@ -10,11 +10,11 @@ const Welcome: React.FC = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(false); // Oculta o conteúdo após 5 segundos
-    }, 3000);
+      setIsVisible(false);
+    }, 4000);
 
     const redirectTimer = setTimeout(() => {
-      navigate('/'); // Redireciona para a página inicial após 6 segundos
+      navigate('/');
     }, 4000);
 
     return () => {
@@ -26,13 +26,13 @@ const Welcome: React.FC = () => {
   return (
     <>
       {isVisible && (
-        <div>
+        <div className={style.container}>
           <div className={style.welcome}>
             {user && (
               <>
                 {user.imageUrl && <img src={user.imageUrl} alt={`${user.firstName}'s profile`} className={style.img} />}
-                <h1>Bem-vindo, {user.firstName}!</h1>
-                <p>Estamos felizes em tê-lo(a) aqui!</p>
+                <h1>Welcome, {user.firstName}!</h1>
+                <h2>We are happy to have you here!</h2>
               </>
             )}
           </div>

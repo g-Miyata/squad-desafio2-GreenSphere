@@ -1,13 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import { UserButton } from '@clerk/clerk-react';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo.svg';
 import style from './Header.module.css';
 
 const Header = () => {
   return (
     <header className={style.header}>
       <div>
-        <img src={logo} alt="Green Sphere Logo" />
+        <img src={logo} title="Green Sphere Logo" alt="Green Sphere Logo" />
       </div>
       <nav>
         <ul>

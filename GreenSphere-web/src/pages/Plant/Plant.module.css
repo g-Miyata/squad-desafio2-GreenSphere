@@ -1,0 +1,91 @@
+.container {
+  height: calc(100vh - 5.2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6.5rem;
+  background-color: #f0f1ee;
+}
+
+.content {
+  display: flex;
+  gap: 6rem;
+  height: fit-content;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+}
+
+.content img {
+  width: 40rem;
+  height: 40rem;
+  object-fit: cover;
+
+  box-shadow: 0 0.25rem 0.3rem 0.2rem rgba(0, 0, 0, 0.3);
+}
+
+.description {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  width: 42.8rem;
+  height: 40rem;
+}
+
+.description h2,
+.feat h2 {
+  font-size: 1.2rem;
+}
+
+.description h2,
+.description span {
+  text-transform: capitalize;
+}
+
+.description ul {
+  list-style-position: inside;
+}
+.description li {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+.title {
+  gap: 1.2rem;
+  padding-bottom: 1rem;
+}
+
+.title h2,
+.title p,
+.labels {
+  margin-bottom: 1rem;
+}
+.title button {
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+.title h2 {
+  color: #b2b5af;
+}
+.title p {
+  font-family: 'Lato-Regular';
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1rem;
+  flex-grow: 1;
+}
+.feat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  flex-grow: 1;
+}
+.labels {
+  display: flex;
+  gap: 1rem;
+}

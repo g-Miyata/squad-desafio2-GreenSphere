@@ -10,6 +10,7 @@ import SignInPage from './pages/SignIn/SignInPage';
 import Welcome from './pages/Welcome/Welcome';
 import { Navigate } from 'react-router-dom';
 import Header from './components/Header/Header';
+import Plant from './pages/Plant/Plant';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/plant" element={<Plant />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="*" element={<NotFound />} />
