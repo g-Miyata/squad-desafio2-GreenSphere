@@ -31,6 +31,13 @@
   font-weight: normal; /* Opcional: peso da fonte */
   font-style: normal; /* Opcional: estilo (normal ou itálico) */
 }
+
+@font-face {
+  font-family: 'OdinRounded-Bold'; /* Nome da fonte */
+  src: url('./assets/fonts/OdinRounded-Bold.otf') format('opentype'); /* Caminho para o arquivo */
+  font-weight: normal; /* Opcional: peso da fonte */
+  font-style: normal; /* Opcional: estilo (normal ou itálico) */
+}
 * {
   margin: 0;
   padding: 0;

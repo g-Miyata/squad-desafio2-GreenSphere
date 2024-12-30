@@ -1,8 +1,14 @@
-.welcome div {
+.container {
+  height: calc(100vh - 5.2rem);
+  background-color: #f1f2ef;
+}
+
+.welcome {
+  height: 80%;
+  width: 100%;
   display: flex;
-  height: 100%;
   flex-direction: column;
-  flex-wrap: nowrap;
+  justify-content: center;
   align-items: center;
 }
 
@@ -11,4 +17,38 @@
   width: 150px;
   height: 150px;
   margin-top: 20px;
+  box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.4);
+  margin-bottom: 4rem;
+}
+
+.welcome h1,
+.welcome h2 {
+  letter-spacing: 0.25rem;
+  white-space: nowrap;
+}
+
+.welcome h1 {
+  font-size: 5rem;
+  color: #354733;
+  animation: pulse 0.2s ease-in-out 2s;
+}
+
+.welcome h2 {
+  font-size: 2rem;
+  color: #8a9b6e;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

@@ -1,0 +1,59 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+
+.container video {
+  z-index: -1000;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+}
+.container img {
+  width: 10rem;
+}
+
+.content {
+  width: 28%;
+  min-width: 20rem;
+  height: 100%;
+  border-radius: 2rem;
+  background: radial-gradient(circle at center, rgba(2, 117, 2, 0.8), rgba(213, 213, 213, 0.3));
+  background-size: 100%;
+  display: flex;
+  gap: 2rem;
+  white-space: nowrap;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  transition: background-size 0.6s ease-in-out, background-color 0.6s ease-in-out;
+  font-family: 'OdinRounded-Bold';
+}
+.content h1 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.content:hover {
+  background-size: 200%; /* Aumenta o tamanho do gradiente radial */
+}
+
+.content button {
+  background-color: rgba(106, 138, 103, 0.7);
+  font-size: 1rem;
+  border-radius: 2rem;
+  color: #fff;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  padding: 1.5rem 3.8rem 1.5rem 3.8rem;
+  border: none;
+}
+
+.content button:hover {
+  background-color: #2b4e24;
+  transition: ease-in 0.3s;
+}

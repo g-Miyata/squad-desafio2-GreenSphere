@@ -1,12 +1,7 @@
-import ImageCarousel from '../../components/Splide/Splide';
+import React from 'react';
+
 const Products = () => {
-  return (
-    <section className="">
-      <div>
-        <ImageCarousel />
-      </div>
-    </section>
-  );
+  return <div>Products</div>;
 };
 
 export default Products;
