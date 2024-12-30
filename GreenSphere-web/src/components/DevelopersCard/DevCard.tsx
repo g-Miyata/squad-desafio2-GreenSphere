@@ -31,10 +31,12 @@ const FlipCard: React.FC<CardProps> = ({ age, role, devImg, icon, developed, nam
       {/* Frente do card */}
       <div className={`${style.cardFace} ${style.cardFront}`}>
         <img src={devImg} alt={name} />
-        <h1>{name}</h1>
-        <div className={style.icon}>
-          <img src={icon} alt={developed} />
-          <p>{developed}</p>
+        <div className={style.info}>
+          <h1>{name}</h1>
+          <div className={style.icon}>
+            <img src={icon} alt={developed} />
+            <p>{developed}</p>
+          </div>
         </div>
         <div className={style.btnContainer}>
           <button>&rarr; more info &larr; </button>
