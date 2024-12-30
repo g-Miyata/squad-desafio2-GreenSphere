@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  min-width: 70rem;
+  background-color: #fcfcfc;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  min-width: 60rem;
+  text-align: center;
+  white-space: wrap;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.instructions header {
+  margin-top: 9rem;
+  margin-bottom: 0 !important;
+  flex-grow: 1;
+}
+.cardsContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+
+  flex-grow: 2;
+}
+
+.instructions header {
+  margin-bottom: 5rem;
+}

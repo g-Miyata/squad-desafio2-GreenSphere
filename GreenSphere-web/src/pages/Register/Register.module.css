@@ -1,0 +1,10 @@
+.container {
+  height: calc(100vh - 4.375rem);
+  padding: 0;
+  margin: 0;
+  background-image: url('../../assets/images/1bg-image-home.png');
+  background-size: cover;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  min-width: 70rem;
+}

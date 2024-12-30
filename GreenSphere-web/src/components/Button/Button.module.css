@@ -1,0 +1,13 @@
+.button {
+  background-color: #354733;
+  font-size: 1rem;
+  font-family: 'Raleway-regular';
+  color: #fff;
+  padding: 1.5rem 3.8rem 1.5rem 3.8rem;
+  border: none;
+}
+
+.button:hover {
+  background-color: #222c20;
+  transition: ease-in 0.3s;
+}

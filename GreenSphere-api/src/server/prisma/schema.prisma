@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Plant{
+  id                  Int       @id @default(autoincrement())
+  name                String
+  subtitle            String
+  label               String[]
+  price               Float
+  isInSale            Boolean
+  discountPercentage  Int?
+  features            String
+  description         String
+  imgUrl              String?
+}

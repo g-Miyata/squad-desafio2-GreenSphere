@@ -1,0 +1,16 @@
+import { Router, Request, Response } from "express";
+import { PrismaClient } from "@prisma/client";
+
+const router = Router()
+const prisma = new PrismaClient()
+
+router.get("/", async (_: Request, res: Response) =>{
+    try {
+        const plants = await prisma.plant.findMany()
+        res.status(200).json(plants)
+    } catch (error) {
+        res.status(500).json({error: "Erro ao criar a planta"})
+    }
+})
+
+export default router

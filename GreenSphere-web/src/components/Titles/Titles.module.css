@@ -1,0 +1,30 @@
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.container h1 {
+  font-size: 4.375rem; /* Altura da fonte */
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+.titleText {
+  font-family: 'EBgaramond-Regular';
+  color: #354733;
+}
+
+.highlightText {
+  font-family: 'EBgaramond-Regular';
+  color: #8a9b6e;
+}
+
+.text {
+  color: #87897d;
+  font-size: 1rem;
+  line-height: 1.6;
+  white-space: nowrap;
+  margin-top: 1rem;
+  margin-left: 0;
+  margin-bottom: 2.5rem;
+}

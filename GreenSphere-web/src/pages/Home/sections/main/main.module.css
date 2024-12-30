@@ -1,0 +1,47 @@
+.home {
+  height: calc(100vh - 4.375rem);
+  padding: 0;
+  margin: 0;
+  background-image: url('../../../../assets/images/1bg-image-home.png');
+  background-size: cover;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  min-width: 70rem;
+}
+
+.home section {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  padding-top: 10%;
+}
+
+.home section > p {
+  margin: 0;
+  align-self: left;
+  margin-left: 6.5rem;
+  margin-bottom: 0.8rem;
+  color: #87897d;
+}
+.home article {
+  margin-left: 6.5rem;
+}
+
+.home h2 {
+  font-family: 'Pacifico-Regular';
+  color: #000;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.home div {
+  margin-bottom: 0;
+}
+
+.home div p {
+  margin-left: 0;
+}
+
+.home p {
+  margin-left: 6.5rem;
+}

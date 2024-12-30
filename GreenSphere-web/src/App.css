@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Pacifico-Regular'; /* Nome da fonte */
+  src: url('./assets/fonts/Pacifico-Regular.ttf') format('truetype'); /* Caminho para o arquivo */
+  font-weight: normal; /* Opcional: peso da fonte */
+  font-style: normal; /* Opcional: estilo (normal ou itálico) */
+}
+
+@font-face {
+  font-family: 'Raleway-Regular'; /* Nome da fonte */
+  src: url('./assets/fonts/Raleway-Regular.ttf') format('truetype'); /* Caminho para o arquivo */
+  font-weight: normal; /* Opcional: peso da fonte */
+  font-style: normal; /* Opcional: estilo (normal ou itálico) */
+}
+
+@font-face {
+  font-family: 'EBgaramond-Regular'; /* Nome da fonte */
+  src: url('./assets/fonts/EBGaramond-Regular.ttf') format('truetype'); /* Caminho para o arquivo */
+  font-weight: normal; /* Opcional: peso da fonte */
+  font-style: normal; /* Opcional: estilo (normal ou itálico) */
+}
+
+@font-face {
+  font-family: 'Lato-Regular'; /* Nome da fonte */
+  src: url('./assets/fonts/Lato-Regular.ttf') format('truetype'); /* Caminho para o arquivo */
+  font-weight: normal; /* Opcional: peso da fonte */
+  font-style: normal; /* Opcional: estilo (normal ou itálico) */
+}
+@font-face {
+  font-family: 'Inter-SemiBold'; /* Nome da fonte */
+  src: url('./assets/fonts/Inter-SemiBold.ttf') format('truetype'); /* Caminho para o arquivo */
+  font-weight: normal; /* Opcional: peso da fonte */
+  font-style: normal; /* Opcional: estilo (normal ou itálico) */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Raleway-Regular';
+}

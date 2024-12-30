@@ -1,0 +1,13 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  min-width: 50rem;
+  /* Evita rolagem horizontal */
+}
+
+* {
+  box-sizing: border-box;
+}
