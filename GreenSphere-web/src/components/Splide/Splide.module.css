@@ -42,7 +42,7 @@
 
 .imgContainer img {
   width: 100%;
-
+  height: 100%;
   object-fit: cover;
 }
 
@@ -53,6 +53,7 @@
   text-align: left !important;
   margin-left: 2rem;
   margin-bottom: 1rem;
+  text-decoration: none !important;
 }
 
 .splideBody small {
