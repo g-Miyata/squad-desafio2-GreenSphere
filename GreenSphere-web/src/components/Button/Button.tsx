@@ -1,7 +1,5 @@
 import style from './Button.module.css';
-interface ButtonProps {
-  text: string;
-}
+import { ButtonProps } from './Button.types';
 
 const Button = ({ text }: ButtonProps) => {
   return (
