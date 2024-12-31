@@ -1,0 +1,14 @@
+.label {
+  padding: 0.6rem;
+  border: 0.15rem solid #8a9b6e;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 1.3rem;
+  color: #8a9b6e;
+  background-color: #f0f1ee;
+}
+
+.label p {
+  font-size: 0.8rem;
+  font-weight: normal;
+}

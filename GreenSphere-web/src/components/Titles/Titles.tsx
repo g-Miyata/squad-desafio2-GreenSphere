@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Titles.module.css';
 
 interface TextProps {
@@ -7,7 +6,7 @@ interface TextProps {
   text?: string; // A propriedade text é opcional
 }
 
-const Titles: React.FC<TextProps> = ({ titleText, highlightText, text }) => {
+const Titles = ({ titleText, highlightText, text }: TextProps) => {
   return (
     <div className={styles.container}>
       <h1>

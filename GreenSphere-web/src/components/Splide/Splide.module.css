@@ -1,6 +1,6 @@
 .container {
   height: fit-content;
-  padding: 2rem;
+  padding: 3rem;
   display: flex;
   align-items: center;
   margin: 0;
@@ -8,6 +8,15 @@
   width: fit-content;
   transition: transform 1s ease-in-out;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.container:visited {
+  color: #354733; /* Remove a cor roxa após clicar */
+}
+
+.container:active {
+  color: #354733; /* Remove a cor vermelha ao clicar */
 }
 
 @keyframes highlighted {
@@ -27,8 +36,8 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: 30rem;
-  width: 19.3rem;
+  height: 34rem;
+  width: 23rem;
   background-color: none;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.4);
 }
@@ -64,19 +73,10 @@
 
 .label {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1rem;
+  gap: 1rem;
   margin-left: 2rem;
-  width: fit-content;
-  border: 0.1rem solid #8a9b6e;
-  width: 6rem;
-  height: 3rem;
-  border-radius: 1.5rem;
-  background-color: #8a9b6e41;
 }
 
 .label p {
   margin: 0;
-  color: #8a9b6e;
 }

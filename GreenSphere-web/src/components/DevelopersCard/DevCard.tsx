@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import style from './DevCard.module.css';
 
 import IFSP from '../../assets/images/IFSP.svg';
@@ -19,7 +19,7 @@ interface CardProps {
   github: string;
 }
 
-const FlipCard: React.FC<CardProps> = ({ age, role, devImg, icon, developed, name, education, company, location, linkedin, github, email }) => {
+const FlipCard = ({ age, role, devImg, icon, developed, name, education, company, location, linkedin, github, email }: CardProps) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
   const handleFlip = (): void => {
