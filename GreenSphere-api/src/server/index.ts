@@ -5,6 +5,10 @@ import deletePlant from "./routes/deletePlant"
 
 const app = express()
 
+app.get('/', (req, res) => {
+    res.json({ message: 'teste com typescript' })
+})
+
 
 app.use(express.json())
 
