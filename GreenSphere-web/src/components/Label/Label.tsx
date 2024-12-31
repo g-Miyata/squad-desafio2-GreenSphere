@@ -1,7 +1,5 @@
 import style from './Label.module.css';
-interface LabelProps {
-  text: string;
-}
+import { LabelProps } from './Label.types';
 
 const Label = ({ text }: LabelProps) => {
   return <div className={style.label}>{text}</div>;

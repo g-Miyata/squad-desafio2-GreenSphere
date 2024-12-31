@@ -1,11 +1,7 @@
 import Titles from '../Titles/Titles';
 
 import style from './InstructionCards.module.css';
-interface CardsProps {
-  icon: string;
-  title: string;
-  description: string;
-}
+import { CardsProps } from './InstructionCard.types';
 
 const InstructionCards = ({ icon, title, description }: CardsProps) => {
   return (

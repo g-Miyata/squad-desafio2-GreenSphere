@@ -1,10 +1,5 @@
 import styles from './Titles.module.css';
-
-interface TextProps {
-  titleText?: string;
-  highlightText?: string;
-  text?: string; // A propriedade text é opcional
-}
+import { TextProps } from './Titles.types';
 
 const Titles = ({ titleText, highlightText, text }: TextProps) => {
   return (
