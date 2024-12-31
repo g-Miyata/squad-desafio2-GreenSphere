@@ -10,4 +10,5 @@
 .button:hover {
   background-color: #222c20;
   transition: ease-in 0.3s;
+  cursor: pointer;
 }

@@ -13,7 +13,7 @@ const ImageCarousel: FC = () => {
   const { data: plants, loading, error } = useFetchPlants('/5371015a-8bee-41cc-a419-3c9b71404b58');
 
   if (loading) {
-    return <p></p>;
+    return <p>Loading...</p>;
   }
 
   if (error) {
@@ -28,6 +28,8 @@ const ImageCarousel: FC = () => {
         type: 'loop',
         perPage: numberOfSlides,
         drag: 'free',
+        pagination: false,
+        arrows: false,
         autoScroll: {
           speed: 0.5,
         },
