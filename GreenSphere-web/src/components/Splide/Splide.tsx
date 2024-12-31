@@ -9,7 +9,7 @@ import useFetchPlants from '../../hooks/useFetchPlants';
 
 const ImageCarousel: FC = () => {
   const numberOfSlides = useSplide();
-  const { data: plants, loading, error } = useFetchPlants('https://run.mocky.io/v3/5371015a-8bee-41cc-a419-3c9b71404b58');
+  const { data: plants, loading, error } = useFetchPlants('/5371015a-8bee-41cc-a419-3c9b71404b58');
 
   if (loading) {
     return <p></p>;

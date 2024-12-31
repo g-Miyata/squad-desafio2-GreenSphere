@@ -55,8 +55,7 @@
 }
 
 .title h2,
-.title p,
-.labels {
+.title p {
   margin-bottom: 1rem;
 }
 .title button {
@@ -69,6 +68,7 @@
   font-family: 'Lato-Regular';
   font-size: 1.2rem;
   font-weight: bold;
+  margin-top: 1rem;
 }
 .info {
   display: flex;

@@ -3,7 +3,7 @@ interface ButtonProps {
   text: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ text }) => {
+const Button = ({ text }: ButtonProps) => {
   return (
     <button type="submit" className={style.button}>
       {text}

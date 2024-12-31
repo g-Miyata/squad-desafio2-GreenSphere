@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 interface NavigateProps {
   path: string;
 }
-export const Navigate: React.FC<NavigateProps> = ({ path }) => {
+export const Navigate = ({ path }: NavigateProps) => {
   const navigate = useNavigate();
 
   useEffect(() => {
