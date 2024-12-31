@@ -4,20 +4,7 @@ import style from './DevCard.module.css';
 import IFSP from '../../assets/images/IFSP.svg';
 import compass from '../../assets/images/compass-uol.svg';
 
-interface CardProps {
-  devImg: string;
-  icon: string;
-  developed: string;
-  name: string;
-  role: string;
-  email: string;
-  age: string;
-  education: string;
-  company: string;
-  location: string;
-  linkedin: string;
-  github: string;
-}
+import { CardProps } from './DevCard.types';
 
 const FlipCard = ({ age, role, devImg, icon, developed, name, education, company, location, linkedin, github, email }: CardProps) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
