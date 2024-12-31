@@ -1,0 +1,1232 @@
+diff --git a/package-lock.json b/package-lock.json
+index d3f3850..c7d1ccf 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -7,6 +7,7 @@
+     "": {
+       "name": "desafio-22",
+       "version": "0.0.0",
++      "hasInstallScript": true,
+       "dependencies": {
+         "@clerk/clerk-react": "^5.21.0",
+         "@hookform/resolvers": "^3.9.1",
+diff --git a/src/App.tsx b/src/App.tsx
+index 97e1208..c084419 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -10,6 +10,7 @@ import SignInPage from './pages/SignIn/SignInPage';
+ import Welcome from './pages/Welcome/Welcome';
+ import { Navigate } from 'react-router-dom';
+ import Header from './components/Header/Header';
++import Footer from './components/Footer/Footer';
+ 
+ function App() {
+   return (
+@@ -31,6 +32,7 @@ function App() {
+           <Route path="*" element={<NotFound />} />
+         </Routes>
+       </SignedIn>
++      
+     </>
+   );
+ }
+diff --git a/src/components/Footer/Footer.tsx b/src/components/Footer/Footer.tsx
+index 6874b51..a249499 100644
+--- a/src/components/Footer/Footer.tsx
++++ b/src/components/Footer/Footer.tsx
+@@ -1,5 +1,47 @@
++import {Link} from 'react-router-dom'
++import "./Footer.css"
++import logo from '../../assets/images/logo.png';
++
++
++
+ const Footer = () => {
+-  return <div>footer</div>;
++  return (
++  <footer className='footer'>
++  <div className='footer-nav'></div>
++
++  <div className='contato'> 
++    <h1>Stay Fresh</h1>
++    <p>compassinhos@gmail.com</p>
++    <p>+55 41 99999-9999</p>
++    </div>
++
++  <nav className='nav'>           
++      <h3>Links</h3>
++      <Link to="/about" className="links">About us</Link>
++      <Link to="/products" className="links">Products</Link>
++      <Link to="/blogs" className="links">Blogs</Link>
++  </nav>
++
++  <nav className='nav1'>
++      <h3>Community</h3> 
++      <Link to="/about" className="links">About us</Link>
++      <Link to="/products" className="links">Products</Link>
++      <Link to="/blogs" className="links">Blogs</Link>
++  </nav>
++  <div className='footer-line'></div>
++  
++  <div className='final-footer'>
++  <img src={logo} alt="Green Sphere Logo" />
++    <p>
++      Compassinhos ®. All rights <br />
++      <span className="reserved">reserved.</span>
++    </p>
++  </div>
++
++</footer>
++
++  );
++
+ };
+ 
+ export default Footer;
+diff --git a/src/components/Form/Form.module.css b/src/components/Form/Form.module.css
+index e3165d8..07e1d08 100644
+--- a/src/components/Form/Form.module.css
++++ b/src/components/Form/Form.module.css
+@@ -1,13 +1,17 @@
++
+ .formContainer {
+   width: 100%;
+-  height: 100vh;
++  height: auto;
+   max-width: 28rem;
+   background: none;
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+-  margin-left: 6.5rem;
++  margin-left: 6rem;
++  padding: 1rem; 
+ }
++
++
+ .formContainer button {
+   border-radius: 0.25rem;
+   padding-top: 0.75rem;
+@@ -16,15 +20,18 @@
+   font-weight: bold;
+   letter-spacing: 0.1rem;
+ }
++
+ .formContainer label {
+   font-family: 'Inter-semiBold';
+ }
++
+ .formContainer header h1 {
+   color: #222c20;
+   font-size: 1rem;
+   padding-bottom: 1rem;
+   font-family: 'Inter-semiBold';
+ }
++
+ .formContainer header hr {
+   border: none;
+   border-top: 0.1rem solid #d1d5db;
+@@ -37,6 +44,7 @@
+   font-size: 0.75rem;
+   font-weight: bold;
+ }
++
+ .formGroup textarea {
+   min-width: 100%;
+   min-height: 5rem;
+@@ -61,12 +69,14 @@
+ .formGroup select:focus {
+   border-color: #8a9b6e;
+ }
++
+ .formGroup input::placeholder,
+ .formGroup textarea::placeholder,
+ .formGroup select::placeholder {
+   color: #d1d5db;
+ }
+ 
++/* Botão de envio */
+ .submitBtn button {
+   padding: 0.8rem 1.2rem;
+   border-radius: 0.25rem;
+@@ -74,6 +84,7 @@
+   width: 100%;
+ }
+ 
++/* Mensagens de erro */
+ .errorMessage {
+   font-size: 0.7rem;
+   color: #e53935;
+@@ -95,6 +106,7 @@
+   display: flex;
+   gap: 1rem;
+ }
++
+ .prices div {
+   display: flex;
+   flex-direction: column;
+@@ -125,3 +137,70 @@
+   color: #000;
+   font-weight: bold;
+ }
++
++@media (max-width: 768px) {
++  .formContainer {
++    margin-left: 0;
++    margin-right: 0;
++    max-width: 100%;
++    height: auto; /* Garante que o formulário ocupe 100% da tela em dispositivos pequenos */
++  }
++
++  /* Ajuste nos campos de input, textarea e select para garantir que ocupem 100% da largura */
++  .formGroup input,
++  .formGroup textarea,
++  .formGroup select {
++    font-size: 1rem; /* Aumenta a fonte para melhor leitura */
++    padding: 1rem;
++    width: 100%;
++    box-sizing: border-box;
++  }
++
++  /* Ajuste para os botões e outros elementos */
++  .submitBtn button {
++    width: 100%;
++    padding: 1rem; 
++    font-size: 1rem;
++    margin-top: 1.5rem;
++  }
++
++  .formGroup {
++    gap: 1rem; /* Aumenta o espaçamento entre os itens */
++  }
++
++  .formRadioGroup {
++    flex-direction: column;  /* Torna a lista de opções em coluna para mais espaço */
++    gap: 0.8rem;  /* Aumenta o espaçamento entre os itens */
++  }
++
++  .formRadioGroup label {
++    display: flex;
++    align-items: center;
++    gap: 0.5rem;
++    color: #d1d5db;
++    cursor: pointer;
++  }
++
++  .prices {
++    flex-direction: column; /* Torna a lista de preços em coluna para facilitar visualização */
++    gap: 0.8rem;
++  }
++
++  .prices div {
++    width: 100%;
++  }
++
++  .formContainer button {
++    border-radius: 0.25rem;
++    padding-top: 0.75rem;
++    padding-bottom: 0.75rem;
++    font-size: 0.75rem;
++    font-weight: bold;
++    letter-spacing: 0.1rem;
++  }
++
++  
++
++
++}
++
+diff --git a/src/components/Header/Header.module.css b/src/components/Header/Header.module.css
+index f28d157..522cb85 100644
+--- a/src/components/Header/Header.module.css
++++ b/src/components/Header/Header.module.css
+@@ -1,12 +1,13 @@
+ .header {
++  width: 100%;
++  max-width: 100%;
++  overflow: hidden;
+   display: flex;
+-  margin: 0;
+-  padding-bottom: 1.25rem; /* 20px */
+-  padding-top: 1.25rem; /* 20px */
++  padding: 0 16px; /* 20px */
+   justify-content: space-between;
+   align-items: center;
+   background-color: #f1f2ef;
+-  min-width: 70rem;
++  box-sizing: border-box;
+ }
+ 
+ .header div {
+@@ -39,3 +40,46 @@
+ .header .activeLink {
+   color: #8a9b6e;
+ }
++
++
++/* Media query para telas de até 600px (smartphones em modo retrato) */
++@media (max-width: 768px) {
++  .header {
++    flex-direction: column;
++    align-items: flex-start;
++  }
++
++  .header nav ul {
++    flex-direction: column;
++    gap: 8px;
++  }
++}
++
++/* Media query para telas em modo paisagem */
++@media (max-width: 600px) and (orientation: landscape) {
++  nav ul {
++    flex-direction: row;
++    gap: 15px;
++  }
++
++  .header div img {
++   
++    max-width: 140px;
++  }
++}
++  
++@media (max-width: 480px) {
++  .header {
++    align-items: center; /* Centraliza tudo */
++    padding: 0 8px; /* Margem interna menor */
++  }
++
++  .header nav ul {
++    text-align: center;
++  }
++}
++
++
++
++
++
+diff --git a/src/components/InstructionCard/InstructionCards.module.css b/src/components/InstructionCard/InstructionCards.module.css
+index 9e1459a..6f5681f 100644
+--- a/src/components/InstructionCard/InstructionCards.module.css
++++ b/src/components/InstructionCard/InstructionCards.module.css
+@@ -3,20 +3,24 @@
+   flex-direction: column;
+   align-items: center;
+   max-width: 30rem;
++  margin: 0 auto;
++  padding: 1rem;
+ }
+ 
+ .container p {
+   text-align: center;
+-  white-space: wrap;
+   margin-top: 3rem;
+-  padding: 0rem 2rem 0rem;
++  padding: 0 2rem;
++  font-size: 1rem;
++  line-height: 1.5;
+ }
+ 
+ .imgContainer {
+   background-color: #354733;
+   padding: 1.4rem;
+   border-radius: 50%;
+-  align-content: center;
++  align-items: center;
++  justify-content: center;
+   display: flex;
+   margin-bottom: 4rem;
+ }
+@@ -30,4 +34,64 @@
+   color: black;
+   font-size: 2rem;
+   font-family: 'Lato-Regular';
++  text-align: center;
++  margin-bottom: 1rem;
++}
++
++/* Telas pequenas (smartphones em modo retrato, até 480px) */
++@media screen and (max-width: 480px) {
++  .container {
++    max-width: 100%;
++    padding: 1rem;
++  }
++
++  .container h1 {
++    font-size: 1.2rem;
++    text-align: center;
++    margin-bottom: 0.5rem;
++  }
++
++  .imgContainer {
++    padding: 0.8rem;
++  }
++
++  .imgContainer img {
++    height: 1.8rem;
++    width: 1.8rem;
++  }
++
++  .container p {
++    padding: 0 1rem;
++    font-size: 0.9rem; /* Tamanho menor para o texto */
++    margin-top: 1rem;
++    line-height: 1.4;
++  }
++}
++
++/* Responsividade para tablets (481px a 768px) */
++@media screen and (max-width: 768px) and (min-width: 481px) {
++  .container {
++    max-width: 28rem;
++    padding: 1rem 1.5rem;
++  }
++
++  .container h1 {
++    font-size: 1.5rem; /* Ajusta o título para um tamanho intermediário */
++  }
++
++  .imgContainer {
++    padding: 1rem;
++  }
++
++  .imgContainer img {
++    height: 2.5rem;
++    width: 2.5rem;
++  }
++
++  .container p {
++    padding: 0 1.5rem; /* Aumenta um pouco o padding lateral */
++    font-size: 0.9rem;
++    margin-top: 1.5rem;
++    line-height: 1.6;
++  }
+ }
+diff --git a/src/components/Splide/Splide.module.css b/src/components/Splide/Splide.module.css
+index 0fa2cfc..28eaf5f 100644
+--- a/src/components/Splide/Splide.module.css
++++ b/src/components/Splide/Splide.module.css
+@@ -1,20 +1,23 @@
+ .container {
+-  height: fit-content;
+-  padding: 1rem;
+   display: flex;
++  justify-content: center;
+   align-items: center;
+-  margin: 0;
+-  width: fit-content;
++  gap: 2rem; /* Espaçamento entre itens */
++  padding: 1rem;
+ }
+ 
+ .splideBody {
+   display: flex;
+   flex-direction: column;
+-  gap: 1rem;
+-  height: 40rem;
+-  width: 25rem;
++  align-items: center;
++  width: 15rem; /* Largura fixa para os itens */
++  background-color: #fff; /* Fundo branco para uniformidade */
++  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
++  border-radius: 8px; /* Arredonda as bordas */
++  overflow: hidden; /* Garante que nada saia da área do item */
++  padding: 1rem;
++  text-align: center;
+   background-color: none;
+-
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+ }
+ 
+@@ -26,11 +29,12 @@
+ }
+ 
+ .imgContainer img {
+-  width: 100%;
+-
++  width: 70%;
+   object-fit: cover;
++
+ }
+ 
++
+ .splideBody p {
+   font-size: 1.2rem;
+   font-weight: bold;
+@@ -64,3 +68,80 @@
+   margin: 0;
+   color: #8a9b6e;
+ }
++
++/* Telas menores (até 768px) */
++@media (max-width: 768px) {
++  .container {
++    flex-direction: column; /* Empilha os itens verticalmente */
++    gap: 1rem; /* Reduz o espaçamento entre os itens */
++  }
++
++  .splideBody {
++    width: 90%; /* Ajusta a largura para quase toda a tela */
++    padding: 0.8rem;
++  }
++
++  .splideBody p {
++    font-size: 1rem; /* Reduz o tamanho da fonte */
++    margin-left: 1rem;
++  }
++
++  .splideBody small {
++    font-size: 0.9rem;
++    margin-left: 1rem;
++  }
++
++  .label {
++    margin-left: 0; /* Centraliza o botão */
++    margin-top: 1rem;
++    width: 100px;
++    height: 40px;
++  }
++
++  .label p {
++    font-size: 0.9rem;
++  }
++
++  .imgContainer img {
++    width: 100%; /* Garante que as imagens preenchem o contêiner */
++  }
++}
++
++/* Telas muito pequenas (até 480px) */
++@media (max-width: 480px) {
++  .splideBody {
++    width: 100%; /* Ocupa toda a largura da tela */
++    box-shadow: none; /* Remove sombra em telas muito pequenas */
++  }
++
++  .splideBody p, .splideBody small {
++    margin-left: 0.5rem;
++    font-size: 0.9rem;
++  }
++
++  .label {
++    width: 80px;
++    height: 35px;
++    font-size: 0.8rem;
++  }
++}
++
++/* Telas grandes (desktops acima de 1024px) */
++@media (min-width: 1024px) {
++  .container {
++    max-width: 1200px; /* Limita a largura máxima */
++    gap: 3rem; /* Aumenta o espaçamento entre os itens */
++  }
++
++  .splideBody {
++    width: 18rem; /* Aumenta a largura dos itens */
++  }
++
++  .splideBody p {
++    font-size: 1.3rem;
++  }
++
++  .splideBody small {
++    font-size: 1.1rem;
++  }
++}
+\ No newline at end of file
+diff --git a/src/components/Splide/Splide.tsx b/src/components/Splide/Splide.tsx
+index e06c0ea..c8e90fe 100644
+--- a/src/components/Splide/Splide.tsx
++++ b/src/components/Splide/Splide.tsx
+@@ -33,7 +33,7 @@ const ImageCarousel: FC = () => {
+               <p>Titulo</p>
+               <small>$313.00</small>
+             </div>
+-            <div className={style.label}>
++            <div>
+               <p>label</p>
+             </div>
+           </div>
+@@ -120,6 +120,7 @@ const ImageCarousel: FC = () => {
+         </div>
+       </SplideSlide>
+     </Splide>
++    
+   );
+ };
+ 
+diff --git a/src/components/Titles/Titles.module.css b/src/components/Titles/Titles.module.css
+index 6dadfd0..687744e 100644
+--- a/src/components/Titles/Titles.module.css
++++ b/src/components/Titles/Titles.module.css
+@@ -1,3 +1,4 @@
++
+ .container {
+   margin: 0;
+   padding: 0;
+@@ -28,3 +29,42 @@
+   margin-left: 0;
+   margin-bottom: 2.5rem;
+ }
++
++/* Para telas pequenas (smartphones em modo retrato, até 480px) */
++@media (max-width: 480px) {
++  .container h1 {
++    font-size: 2.5rem;
++    white-space: normal; 
++    text-align: center;
++  }
++
++  .text {
++    font-size: 0.875rem;
++    line-height: 1.4; 
++    margin-bottom: 1.5rem; 
++    text-align: center; 
++  }
++
++  .container {
++    padding: 0 0.5rem; 
++  }
++}
++
++/* Para tablets (481px a 768px) */
++@media (max-width: 768px) and (min-width: 481px) {
++  .container h1 {
++    font-size: 3.5rem; 
++    white-space: normal;
++    text-align: center;
++  }
++
++  .text {
++    font-size: 1rem; 
++    line-height: 1.5;
++    text-align: justify; 
++  }
++
++  .container {
++    padding: 0 1rem;
++  }
++}
+\ No newline at end of file
+diff --git a/src/index.css b/src/index.css
+index d900647..2517164 100644
+--- a/src/index.css
++++ b/src/index.css
+@@ -4,10 +4,11 @@ body,
+   margin: 0;
+   padding: 0;
+   height: 100vh;
+-  min-width: 50rem;
+-  /* Evita rolagem horizontal */
++  overflow-x: hidden; /* remove a rolagem Horizontal*/
++ 
+ }
+ 
+ * {
+   box-sizing: border-box;
+ }
++
+diff --git a/src/pages/AboutUs/AboutUs.tsx b/src/pages/AboutUs/AboutUs.tsx
+index 55c4601..ad31c2b 100644
+--- a/src/pages/AboutUs/AboutUs.tsx
++++ b/src/pages/AboutUs/AboutUs.tsx
+@@ -1,5 +1,11 @@
++import Footer from "../../components/Footer/Footer";
++
+ const AboutUs = () => {
+-  return <div>AboutUs</div>;
++  return (
++  <div>AboutUs
++  <Footer/>
++</div>
++  );
+ };
+ 
+ export default AboutUs;
+diff --git a/src/pages/Home/Home.tsx b/src/pages/Home/Home.tsx
+index 183b932..8a18767 100644
+--- a/src/pages/Home/Home.tsx
++++ b/src/pages/Home/Home.tsx
+@@ -14,6 +14,7 @@ const Home = () => {
+         <Outdoor />
+         <BestSelling />
+         <Sales />
++        
+       </section>
+     </div>
+   );
+diff --git a/src/pages/Home/sections/bestSelling/bestSelling.module.css b/src/pages/Home/sections/bestSelling/bestSelling.module.css
+index cdaf524..78ed145 100644
+--- a/src/pages/Home/sections/bestSelling/bestSelling.module.css
++++ b/src/pages/Home/sections/bestSelling/bestSelling.module.css
+@@ -5,16 +5,26 @@
+   width: 100%;
+   height: 100vh;
+   margin: 0;
+-  min-width: 70rem;
++  max-width: 100%;
+   background-color: #f1f2ef;
+ }
+ 
++
+ .container h1 {
+   text-align: center;
+   margin-top: 2rem;
+   margin-bottom: 5rem;
+ }
+ .bestSelling {
+-  margin-left: 6.5rem;
+   overflow-x: hidden;
+ }
++
++@media screen and (max-width: 480px){
++  .container{
++    width: 100%;
++    padding: 0;
++    margin: 0;
++    flex-wrap: wrap;
++   
++  }
++}
+diff --git a/src/pages/Home/sections/bestSelling/bestSelling.tsx b/src/pages/Home/sections/bestSelling/bestSelling.tsx
+index a21a7a4..2d75ef5 100644
+--- a/src/pages/Home/sections/bestSelling/bestSelling.tsx
++++ b/src/pages/Home/sections/bestSelling/bestSelling.tsx
+@@ -1,6 +1,7 @@
+ import Title from '../../../../components/Titles/Titles';
+ import style from './bestSelling.module.css';
+ import ImageCarousel from '../../../../components/Splide/Splide';
++import Footer from '../../../../components/Footer/Footer';
+ const bestSelling = () => {
+   return (
+     <div className={style.container}>
+@@ -10,6 +11,7 @@ const bestSelling = () => {
+         </div>
+         <div>
+           <ImageCarousel />
++         
+         </div>
+       </section>
+     </div>
+diff --git a/src/pages/Home/sections/instructions/instructions.module.css b/src/pages/Home/sections/instructions/instructions.module.css
+index a06b0c1..9baed48 100644
+--- a/src/pages/Home/sections/instructions/instructions.module.css
++++ b/src/pages/Home/sections/instructions/instructions.module.css
+@@ -1,10 +1,16 @@
++header{
++  width: 100%;
++  box-sizing: border-box;
++  text-align: center;
++ 
++}
++
+ .container {
+   display: flex;
+   justify-content: center;
+   padding: 0;
+   width: 100%;
+   margin: 0;
+-  min-width: 70rem;
+   background-color: #fcfcfc;
+ }
+ 
+@@ -12,18 +18,18 @@
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+-  height: 100vh;
+-  min-width: 60rem;
+   text-align: center;
+   white-space: wrap;
++  min-height: 60vh;
+   width: 100%;
+   padding: 0;
+   margin: 0;
++  box-sizing: border-box;
+ }
+ 
+ .instructions header {
+-  margin-top: 9rem;
+-  margin-bottom: 0 !important;
++  margin-top: 4rem;
++  margin-bottom: 1.5rem;
+   flex-grow: 1;
+ }
+ .cardsContainer {
+@@ -31,10 +37,33 @@
+   display: flex;
+   flex-wrap: nowrap;
+   justify-content: space-around;
+-
+   flex-grow: 2;
+ }
+ 
+ .instructions header {
+-  margin-bottom: 5rem;
++  margin-bottom: 2rem;
++  margin-top: 4rem;
++}
++
++
++
++
++@media (max-width: 480px) {
++  .container {
++    flex-direction: column; 
++    padding: 1rem;
++    margin-bottom: 0;
++  }
++
++.instructions{
++  height: auto;
++  padding: 1rem;
++}
++
++.cardsContainer{
++  flex-direction: column;
++  align-items: center;
++  gap: 2rem;
+ }
++
++}
+\ No newline at end of file
+diff --git a/src/pages/Home/sections/instructions/instructions.tsx b/src/pages/Home/sections/instructions/instructions.tsx
+index 6c3827f..141d2df 100644
+--- a/src/pages/Home/sections/instructions/instructions.tsx
++++ b/src/pages/Home/sections/instructions/instructions.tsx
+@@ -9,12 +9,36 @@ const instructions = () => {
+     <div className={style.container}>
+       <section className={style.instructions}>
+         <header>
+-          <Titles titleText="steps to take care of your" highlightText="Plants" text={`By following these three steps - proper watering, appropriate sunlight, and providing essential nutrients - you will be well on your way to\nmaintaining healthy and thriving plants`} />
++          <Titles titleText="steps to take care of your"
++           highlightText="Plants" text={
++            `By following these three steps -
++             proper watering, appropriate sunlight,
++             and providing essential nutrients -
++              you will be well on your way to
++             maintaining healthy and thriving plants`} />
++              
++             
++             
++            
++            
++            
+         </header>
+         <div className={style.cardsContainer}>
+-          <InstructionCards icon={watering} title="Watering" description="Water your plants when the top inch of soil feels dry to the touch. Avoid overwatering , as it can lead to root dehydration" />
+-          <InstructionCards icon={sun} title="Sunlight" description="Most plants need adequate sunlight to thrive. Place your plants in areas that receive the appropriate amount of light for their specific needs" />
+-          <InstructionCards icon={nutrients} title="Nutrients and Fertilizing" description="Choose a suitable fertilizer based on the specific needs of your plants, whether it's a balanced or specialized formula." />
++          <InstructionCards icon={watering} title="Watering" description="Water your plants
++           when the top inch of soil feels
++           dry to the touch. Avoid overwatering ,
++            as it can lead to root dehydration" />
++          <InstructionCards icon={sun} title="Sunlight" description="Most plants need 
++           adequate sunlight to thrive.
++           Place your plants in areas that receive the 
++           appropriate amount of light for their specific
++            needs." />
++          
++          <InstructionCards icon={nutrients} title="Nutrients and Fertilizing" description="Choose a suitable fertilizer
++           based on the specific needs of your plants, 
++           whether it's a balanced or specialized formula." />
++           
++           
+         </div>
+       </section>
+     </div>
+diff --git a/src/pages/Home/sections/main/main.module.css b/src/pages/Home/sections/main/main.module.css
+index 454569e..8b90f91 100644
+--- a/src/pages/Home/sections/main/main.module.css
++++ b/src/pages/Home/sections/main/main.module.css
+@@ -1,47 +1,124 @@
+ .home {
+-  height: calc(100vh - 4.375rem);
+-  padding: 0;
+-  margin: 0;
++ 
++  padding: 20px;
++  display: flex;
++  justify-content: center;
++  align-items: center;
++  flex-direction: column;
++  text-align: center;
+   background-image: url('../../../../assets/images/1bg-image-home.png');
+   background-size: cover;
+   background-position: bottom right;
+   background-repeat: no-repeat;
+-  min-width: 70rem;
++  width: 100%; 
++  max-width: 100%; /* para remover limitações de larguras fixas*/
+ }
+ 
+ .home section {
+   display: flex;
+-  flex-flow: column nowrap;
+-  justify-content: space-between;
++  flex-direction: column;
++  justify-content: center;
+   padding-top: 10%;
++ 
+ }
+ 
+ .home section > p {
+-  margin: 0;
+-  align-self: left;
+-  margin-left: 6.5rem;
+-  margin-bottom: 0.8rem;
++  margin: 2rem 0;
++  align-self: center;
+   color: #87897d;
+ }
+ .home article {
+-  margin-left: 6.5rem;
++  margin: 1rem 0;
+ }
+ 
+ .home h2 {
+   font-family: 'Pacifico-Regular';
+   color: #000;
+-  font-size: 1rem;
++  font-size: 2rem;
+   margin: 0;
+ }
+ 
+ .home div {
+-  margin-bottom: 0;
++  margin-bottom: 1rem;
+ }
+ 
+ .home div p {
+-  margin-left: 0;
++  margin: auto;
+ }
+ 
+ .home p {
+-  margin-left: 6.5rem;
++  margin: auto;
++}
++
++
++
++/* Media query para telas de até 600px (smartphones em modo retrato) */
++@media screen and (max-width: 600px) {
++  
++  .home{
++    padding: 10px;
++    background-position: center;
++  }
++
++  .home section {
++    padding-top: 5%;
++  }
++
++
++  .home h2{
++    font-size: 1.5rem;
++  }
++
++  .home section > p{
++    margin: 1.5rem 0;
++    font-size: 0.9rem;
++  }
++
++  button{
++    padding: 8px 15px;
++    font-size: 0.9rem;
++  }
++
++  article{
++    margin: 0.5rem 0;
++  }
++
++}
++
++
++/* Media query para telas em modo paisagem */
++@media screen and  (max-width: 600px) and (orientation: landscape) {
++  nav ul {
++    flex-direction: row;
++    gap: 15px;
++  }
++
++  .header div img {
++    max-width: 140px;
++  }
++}
++
++/* Media query para telas de até 480px (dispositivos muito pequenos) */
++@media screen and (max-width: 480px) {
++  .home {
++    padding: 8px;
++    background-size: contain; 
++  }
++
++  h2 {
++    font-size: 1.3rem;
++  }
++
++  .home section > p {
++    font-size: 0.8rem;
++  }
++
++  button {
++    padding: 6px 12px;
++    font-size: 0.8rem;
++  }
++
++  article {
++    margin: 0.5rem 0;
++  }
+ }
+diff --git a/src/pages/Home/sections/main/main.tsx b/src/pages/Home/sections/main/main.tsx
+index d9e0456..d31a3fd 100644
+--- a/src/pages/Home/sections/main/main.tsx
++++ b/src/pages/Home/sections/main/main.tsx
+@@ -12,7 +12,12 @@ const main = () => {
+             </div>
+             <div>
+               <Titles titleText="dicover your" highlightText="green" text="" />
+-              <Titles titleText="Side" highlightText="" text={`We are your one-stop destination for all things green and growing. Our website\n offers a wide array of stunning plants, ranging from vibrant flowers to lush indoor\nfoliage, allowing you to create your very own green oasis.`} />
++              <Titles titleText="Side" highlightText="" text={
++                `We are your one-stop destination for all 
++                 things green and growing. Our website offers  
++                 a wide array of stunning plants, ranging from 
++                 vibrant flowers to lush indoor foliage, allowing
++                  you to create your very own green oasis.`} />
+             </div>
+             <div>
+               <Button text="Shop now" />
+diff --git a/src/pages/Home/sections/outdoor/outdoor.module.css b/src/pages/Home/sections/outdoor/outdoor.module.css
+index 2a70115..2a951ea 100644
+--- a/src/pages/Home/sections/outdoor/outdoor.module.css
++++ b/src/pages/Home/sections/outdoor/outdoor.module.css
+@@ -5,31 +5,32 @@
+   padding: 0;
+   padding-bottom: 2rem;
+   margin: 0;
+-  height: 100vh;
++  min-height: 100vh; 
+   background-color: #fcfcfc;
++  overflow: hidden;  /* Garante que o conteúdo não ultrapasse os limites */
+ }
+ 
+ .cardsContainer {
+-  height: 100%;
+   display: flex;
+   margin: 0;
+   width: 100%;
+   justify-content: start;
++  flex-wrap: wrap;
++  gap: 8.2rem;
+ }
++
+ .imgCardsContainer {
+   display: flex;
+-  justify-content: space-between;
+-  align-items: start;
++  justify-content: start;
++  align-items: flex-start;
+   width: 100%;
+-  flex-wrap: wrap;
+-
+-  margin: 0 6.5rem 0;
++  margin: 0 auto;
+   gap: 8.2rem;
+ }
+ 
+ .imgCardsContainer div {
+   width: 20rem;
+-  height: 85%;
++  min-height: 15rem; 
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+@@ -44,11 +45,13 @@
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
++  object-position: center;
+ }
+ 
+ .card3 {
+   box-shadow: none !important;
+ }
++
+ .cardTxt {
+   display: flex;
+   flex-direction: column;
+@@ -87,3 +90,58 @@
+   margin-top: 1rem;
+   margin-bottom: 2rem;
+ }
++
++
++@media (max-width: 1024px) {
++  .imgCardsContainer {
++    justify-content: center;
++    margin: 0 2rem;
++    gap: 4rem;
++  }
++
++  .imgCardsContainer div {
++    width: 18rem;
++    height: auto; 
++  }
++}
++
++/* Media Query para smartphones (telas menores que 768px) */
++@media (max-width: 768px) {
++  .outdoor {
++    padding: 1rem;
++    height: auto;
++  }
++
++  .imgCardsContainer {
++    flex-direction: column; /* Alinha as cards em uma coluna */
++    gap: 2rem;
++    margin: 0;
++  }
++
++  .imgCardsContainer div {
++    width: 100%; /* Cards ocupam a largura total */
++    height: auto;
++  }
++
++  .cardTxt {
++    font-size: 0.85rem; /* Reduz o tamanho do texto */
++  }
++}
++
++/* Media Query para smartphones muito pequenos (telas menores que 480px) */
++@media screen and (max-width: 480px) {
++  .imgCardsContainer div {
++    width: 90%;
++    margin: 0 auto;
++  }
++
++  .cardBtn button {
++    width: 100%;
++  }
++
++  .cardTxt {
++    font-size: 0.8rem;
++    line-height: 1.5;
++  }
++}
++
+diff --git a/src/pages/Home/sections/outdoor/outdoor.tsx b/src/pages/Home/sections/outdoor/outdoor.tsx
+index b450b56..01966f3 100644
+--- a/src/pages/Home/sections/outdoor/outdoor.tsx
++++ b/src/pages/Home/sections/outdoor/outdoor.tsx
+@@ -20,7 +20,13 @@ const outdoor = () => {
+               <img src={imgCard3} alt="" />
+             </section>
+             <section className={style.cardTxt}>
+-              <p>Our website offers a wide array of stunning plants, ranging from vibrant flowers to lush indoor foliage, allowing you to create your very own green oasis. In addition to our extensive plant selection, we also provide gardening kits and fertilizers to equip you with everything you need to nurture your plants and achieve gardening success. But we don't stop there! We believe that knowledge is the key to a thriving garden, so we offer a wealth of information and resources on gardening techniques, plant care tips, and landscaping ideas. Whether you're a seasoned gardener or just starting your green journey, our goal is to inspire and support you every step of the way. Get ready to explore our virtual garden and discover the joys of gardening with us!</p>
++              <p>Our website offers a wide array of stunning plants, ranging from vibrant flowers to lush indoor
++                 foliage, allowing you to create your very own green oasis. In addition to our extensive plant selection, 
++                 we also provide gardening kits and fertilizers to equip you with everything you need to nurture your plants and 
++                 achieve gardening success. But we don't stop there! We believe that knowledge is the key to a thriving garden, so we 
++                 offer a wealth of information and resources on gardening techniques, plant care tips, and landscaping ideas. 
++                 Whether you're a seasoned gardener or just starting your green journey, our goal is to inspire and support you every 
++                 step of the way. Get ready to explore our virtual garden and discover the joys of gardening with us!</p>
+             </section>
+             <section className={style.cardBtn}>
+               <Button text="See more photos" />
+diff --git a/src/pages/Home/sections/sales/sales.module.css b/src/pages/Home/sections/sales/sales.module.css
+index f2cc943..ab54126 100644
+--- a/src/pages/Home/sections/sales/sales.module.css
++++ b/src/pages/Home/sections/sales/sales.module.css
+@@ -3,10 +3,13 @@
+   display: flex;
+   align-items: space-around;
+   width: 100%;
+-  height: 100vh;
++  height: auto;
+   margin: 0;
+-  min-width: 70rem;
++  max-width: 100%;
++  max-width: 100%;
+   background-color: #f1f2ef;
++  overflow: hidden;
++
+ }
+ 
+ .container h1 {
+@@ -15,6 +18,20 @@
+   margin-bottom: 5rem;
+ }
+ .sales {
+-  margin-left: 6.5rem;
++  margin-left: 1%;
+   overflow-x: hidden;
++  overflow: hidden;
++}
++
++@media screen and (max-width: 480px){
++  .container{
++   width: 100%;
++   padding: 0;
++   margin: 0;
++   flex-wrap: wrap;
++  }
++
++.sales img{
++  width: 100%;
++}
+ }
+diff --git a/src/pages/Home/sections/sales/sales.tsx b/src/pages/Home/sections/sales/sales.tsx
+index e777f7c..1a0b8e3 100644
+--- a/src/pages/Home/sections/sales/sales.tsx
++++ b/src/pages/Home/sections/sales/sales.tsx
+@@ -1,6 +1,7 @@
+ import Title from '../../../../components/Titles/Titles';
+ import ImageCarousel from '../../../../components/Splide/Splide';
+ import style from './sales.module.css';
++import Footer from '../../../../components/Footer/Footer';
+ const sales = () => {
+   return (
+     <div>
+@@ -11,6 +12,7 @@ const sales = () => {
+           </div>
+           <div>
+             <ImageCarousel />
++            <Footer/>
+           </div>
+         </section>
+       </div>
+diff --git a/src/pages/Products/Products.tsx b/src/pages/Products/Products.tsx
+index 3efdc01..43583fc 100644
+--- a/src/pages/Products/Products.tsx
++++ b/src/pages/Products/Products.tsx
+@@ -1,9 +1,11 @@
++import Footer from '../../components/Footer/Footer';
+ import ImageCarousel from '../../components/Splide/Splide';
+ const Products = () => {
+   return (
+     <section className="">
+       <div>
+         <ImageCarousel />
++        <Footer/>
+       </div>
+     </section>
+   );
+diff --git a/src/pages/Register/Register.tsx b/src/pages/Register/Register.tsx
+index 7faf625..c3d3b84 100644
+--- a/src/pages/Register/Register.tsx
++++ b/src/pages/Register/Register.tsx
+@@ -1,3 +1,4 @@
++import Footer from '../../components/Footer/Footer';
+ import Form from '../../components/Form/Form';
+ import style from './Register.module.css';
+ const Register = () => {
+@@ -5,6 +6,7 @@ const Register = () => {
+     <section className={style.container}>
+       <div className={style.formContainer}>
+         <Form />
++        <Footer/>
+       </div>
+     </section>
+   );
