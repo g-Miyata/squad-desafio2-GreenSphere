@@ -89,3 +89,9 @@
   display: flex;
   gap: 1rem;
 }
+
+.labels div {
+  border: 0.15rem solid #83e281;
+  background-color: #f6fff6;
+  color: #238a21;
+}
