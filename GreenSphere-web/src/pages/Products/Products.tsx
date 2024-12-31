@@ -1,6 +1,7 @@
 import React from 'react';
 import useFetchPlants from '../../hooks/useFetchPlants';
 import Loader from '../../components/Loader/Loader';
+import Label from '../../components/Label/Label';
 
 const Products: React.FC = () => {
   const { data, loading, error } = useFetchPlants('/5371015a-8bee-41cc-a419-3c9b71404b58');
@@ -15,6 +16,7 @@ const Products: React.FC = () => {
 
   return (
     <div>
+      <Label text="asas" />
       <h1>Lista de Plantas</h1>
       <ul>
         {data.map((plant) => (

@@ -7,7 +7,7 @@ interface CardsProps {
   description: string;
 }
 
-const InstructionCards: React.FC<CardsProps> = ({ icon, title, description }) => {
+const InstructionCards = ({ icon, title, description }: CardsProps) => {
   return (
     <div className={style.container}>
       <div className={style.imgContainer}>

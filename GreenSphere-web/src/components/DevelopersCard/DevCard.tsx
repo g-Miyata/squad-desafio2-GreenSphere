@@ -19,7 +19,7 @@ interface CardProps {
   github: string;
 }
 
-const FlipCard: React.FC<CardProps> = ({ age, role, devImg, icon, developed, name, education, company, location, linkedin, github, email }) => {
+const FlipCard = ({ age, role, devImg, icon, developed, name, education, company, location, linkedin, github, email }: CardProps) => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false);
 
   const handleFlip = (): void => {
