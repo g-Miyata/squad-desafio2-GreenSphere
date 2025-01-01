@@ -5,12 +5,12 @@ import '@splidejs/splide/dist/css/splide.min.css';
 import style from './Splide.module.css';
 import { useSplide } from '../../hooks/useSplide';
 import { Link } from 'react-router-dom';
-import useFetchPlants from '../../hooks/useFetchPlants';
+import useFetchPlants from '../../hooks/useFetchPlant/useFetchPlants';
 import Label from '../Label/Label';
 
 const ImageCarousel: FC = () => {
   const numberOfSlides = useSplide();
-  const { data: plants, loading, error } = useFetchPlants('/5371015a-8bee-41cc-a419-3c9b71404b58');
+  const { data: plants, loading, error } = useFetchPlants('https://run.mocky.io/v3/5371015a-8bee-41cc-a419-3c9b71404b58');
 
   if (loading) {
     return <p>Loading...</p>;
@@ -20,7 +20,8 @@ const ImageCarousel: FC = () => {
     return <p style={{ color: 'red' }}>{error}</p>;
   }
 
-  const plantsInSale = plants.filter((plant) => plant.isInSale);
+  // Garantir que plants está definido antes de chamar o filter
+  const plantsInSale = plants?.filter((plant) => plant.isInSale) || [];
 
   return (
     <Splide
@@ -37,26 +38,30 @@ const ImageCarousel: FC = () => {
       extensions={{ AutoScroll }}
       aria-label="Plant Carousel"
     >
-      {plantsInSale.map((plant) => (
-        <SplideSlide key={plant.id}>
-          <Link to={`/Plant/${plant.id}`} className={style.container}>
-            <div className={style.splideBody}>
-              <div className={style.imgContainer}>
-                <img src={plant.imgUrl} alt={plant.name} />
+      {plantsInSale.length > 0 ? (
+        plantsInSale.map((plant) => (
+          <SplideSlide key={plant.id}>
+            <Link to={`/Plant/${plant.id}`} className={style.container}>
+              <div className={style.splideBody}>
+                <div className={style.imgContainer}>
+                  <img src={plant.imgUrl} alt={plant.name} />
+                </div>
+                <div>
+                  <p>{plant.name}</p>
+                  <small>{plant.price}</small>
+                </div>
+                <div className={style.label}>
+                  {plant.label.map((label, index) => (
+                    <Label key={index} text={label} />
+                  ))}
+                </div>
               </div>
-              <div>
-                <p>{plant.name}</p>
-                <small>{plant.price}</small>
-              </div>
-              <div className={style.label}>
-                {plant.label.map((label, index) => (
-                  <Label key={index} text={label} />
-                ))}
-              </div>
-            </div>
-          </Link>
-        </SplideSlide>
-      ))}
+            </Link>
+          </SplideSlide>
+        ))
+      ) : (
+        <p>No plants available for sale.</p>
+      )}
     </Splide>
   );
 };
