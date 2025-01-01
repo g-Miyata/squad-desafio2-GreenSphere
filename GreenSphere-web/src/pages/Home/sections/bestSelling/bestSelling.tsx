@@ -9,7 +9,7 @@ const bestSelling = () => {
           <Title titleText="this weeks most popular" highlightText="and best selling" />
         </div>
         <div>
-          <ImageCarousel />
+          <ImageCarousel type="bestSelling" />
         </div>
       </section>
     </div>

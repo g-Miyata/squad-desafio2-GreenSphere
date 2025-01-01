@@ -7,8 +7,9 @@ import { useSplide } from '../../hooks/useSplide';
 import { Link } from 'react-router-dom';
 import useFetchPlants from '../../hooks/useFetchPlant/useFetchPlants';
 import Label from '../Label/Label';
+import { CarouselProps } from './Splide.types';
 
-const ImageCarousel: FC = () => {
+const ImageCarousel: FC<CarouselProps> = ({ type }) => {
   const numberOfSlides = useSplide();
   const { data: plants, loading, error } = useFetchPlants('https://run.mocky.io/v3/5371015a-8bee-41cc-a419-3c9b71404b58');
 
@@ -20,8 +21,14 @@ const ImageCarousel: FC = () => {
     return <p style={{ color: 'red' }}>{error}</p>;
   }
 
-  // Garantir que plants está definido antes de chamar o filter
   const plantsInSale = plants?.filter((plant) => plant.isInSale) || [];
+  const bestSelling =
+    plants?.filter((plant) => {
+      const priceAsNumber = parseFloat(plant.price.replace('$', ''));
+      return priceAsNumber < 50;
+    }) || [];
+
+  const carouselContent = type === 'plantsInSale' ? plantsInSale : bestSelling;
 
   return (
     <Splide
@@ -38,8 +45,8 @@ const ImageCarousel: FC = () => {
       extensions={{ AutoScroll }}
       aria-label="Plant Carousel"
     >
-      {plantsInSale.length > 0 ? (
-        plantsInSale.map((plant) => (
+      {carouselContent.length > 0 ? (
+        carouselContent.map((plant) => (
           <SplideSlide key={plant.id}>
             <Link to={`/Plant/${plant.id}`} className={style.container}>
               <div className={style.splideBody}>
