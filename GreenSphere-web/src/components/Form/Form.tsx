@@ -2,10 +2,36 @@ import { useForms } from '../../hooks/useForms';
 import { FormSchema } from '../../schemas/formSchema';
 import style from './Form.module.css';
 import Button from '../Button/Button';
+import axios from 'axios';
+import useFetchPlants from '../../hooks/useFetchPlant/useFetchPlants';
+import { useState } from 'react';
 const Form = () => {
-  const { register, handleSubmit, errors } = useForms();
-  const onSubmit = (data: FormSchema) => {
-    console.log(data); // Submit form data to server
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>('');
+  const { register, handleSubmit, reset, errors } = useForms();
+  const { fetchData } = useFetchPlants('https://run.mocky.io/v3/5371015a-8bee-41cc-a419-3c9b71404b58');
+
+  const onSubmit = async (data: FormSchema) => {
+    setIsSubmitting(true);
+    try {
+      console.log(data);
+      const response = await axios.post('https://run.mocky.io/v3/5371015a-8bee-41cc-a419-3c9b71404b58', data);
+      console.log('Success post: ', response.data);
+      await fetchData();
+      setMessage('Plant successfully registered!');
+      reset();
+      setTimeout(() => {
+        setMessage('');
+      }, 2000);
+    } catch (error) {
+      setMessage('Failed to register the plant. Please try again.');
+      console.error('Failed post: ', error);
+      setTimeout(() => {
+        setMessage('');
+      }, 2000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -62,7 +88,8 @@ const Form = () => {
         <textarea id="description" placeholder="Ladyfinger cactus..." {...register('description')} />
       </div>
       <div className={style.submitBtn}>
-        <Button text="Registrar" />
+        {message && <p>{message}</p>}
+        <Button text={isSubmitting ? 'Submitting...' : 'Register'} />
       </div>
     </form>
   );
