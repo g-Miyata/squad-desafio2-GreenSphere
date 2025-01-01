@@ -12,7 +12,7 @@ const sales = () => {
             <Title titleText="Sale" />
           </div>
           <div>
-            <ImageCarousel />
+            <ImageCarousel type="plantsInSale" />
           </div>
         </section>
       </div>
