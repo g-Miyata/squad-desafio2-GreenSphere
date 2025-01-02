@@ -13,8 +13,9 @@ const express_1 = require("express");
 const client_1 = require("@prisma/client");
 const router = (0, express_1.Router)();
 const prisma = new client_1.PrismaClient();
-router.get("/", (_, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        console.log("teste log");
         const plants = yield prisma.plant.findMany();
         const plantsWithLabels = plants.map((plant) => {
             const labels = plant.label.split(',').map((label) => label.trim());

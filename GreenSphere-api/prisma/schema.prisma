@@ -7,11 +7,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Plant{
-  id                  Int       @id @default(autoincrement())
+model Plant {
+  id                  Int      @id @default(autoincrement())
   name                String
   subtitle            String
-  label               String
+  label               String   
+  plantType           String
   price               Float
   isInSale            Boolean
   discountPercentage  Int?
