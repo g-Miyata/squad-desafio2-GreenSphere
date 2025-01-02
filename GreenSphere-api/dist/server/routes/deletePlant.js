@@ -15,7 +15,8 @@ const router = (0, express_1.Router)();
 const prisma = new client_1.PrismaClient();
 router.delete("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const plantToDelete = yield prisma.plant.delete({ where: { id: req.params.id } });
+        const id = Number(req.params.id);
+        const plantToDelete = yield prisma.plant.delete({ where: { id } });
         res.status(200).json(plantToDelete);
     }
     catch (error) {
