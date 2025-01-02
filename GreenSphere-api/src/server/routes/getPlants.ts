@@ -4,16 +4,12 @@ import { PrismaClient } from "@prisma/client";
 const router = Router()
 const prisma = new PrismaClient()
 
-router.get("/", async (_: Request, res: Response) =>{
+router.get("/", async (req: Request, res: Response) =>{
     try {
         const plants = await prisma.plant.findMany()
-        const plantsWithLabels = plants.map((plant) => {
-        const labels = plant.label.split(',').map((label) => label.trim())
-        return { ...plant, label: labels }
-    })
-    res.status(200).json(plantsWithLabels)
+        res.status(200).json(plants)
     } catch (error) {
-        res.status(500).json({error: "Erro ao encontrar planta"})
+        res.status(500).json({error: "Erro ao criar a planta"})
     }
 })
 
