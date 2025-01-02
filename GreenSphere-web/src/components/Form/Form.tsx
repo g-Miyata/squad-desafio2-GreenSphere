@@ -19,7 +19,7 @@ const Form = () => {
       imgUrl: data.imgUrl || defaultImg,
     };
 
-    console.log('Discount Percentage:', data.discountPercentage);
+    console.log(postData);
     setIsSubmitting(true);
     try {
       await axios.post('http://localhost:3000/register', postData);

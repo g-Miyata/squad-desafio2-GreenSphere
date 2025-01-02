@@ -15,7 +15,7 @@ const PlantSchema = z.object({
   plantType: z.string(),
   features: z.string().min(10),
   description: z.string().min(10),
-  imgUrl: z.string().url(),
+  imgUrl: z.string(),
 });
 
 type Plant = z.infer<typeof PlantSchema>;

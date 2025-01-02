@@ -8,16 +8,18 @@ const client_1 = require("@prisma/client");
 const createPlant_1 = __importDefault(require("./routes/createPlant"));
 const getPlants_1 = __importDefault(require("./routes/getPlants"));
 const deletePlant_1 = __importDefault(require("./routes/deletePlant"));
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 const PORT = 3000;
 const prisma = new client_1.PrismaClient();
 app.use(express_1.default.json());
+app.use((0, cors_1.default)());
 // app.get('/', (req, res) => {
 //     res.json({ message: 'teste com typescript' })
-// })  
-app.use("/plants", getPlants_1.default);
-app.use("/", createPlant_1.default);
-app.use("/", deletePlant_1.default);
+// })
+app.use('/plants', getPlants_1.default);
+app.use('/register', createPlant_1.default);
+app.use('/plants', deletePlant_1.default);
 app.listen(PORT, () => {
     console.log(`Servidor está rodando na porta ${PORT}`);
 });
