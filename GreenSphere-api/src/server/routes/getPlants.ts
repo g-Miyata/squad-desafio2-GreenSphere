@@ -13,4 +13,15 @@ router.get("/", async (_: Request, res: Response) =>{
     }
 })
 
+router.get("/:id", async (req, res) => {
+    try {
+        const id = Number(req.params.id)
+        const plantId = await prisma.plant.findUnique({where: {id}})
+        res.status(200).json(plantId)    
+    }
+    catch{
+        res.status(404).json({error: "Planta não encontrada"})
+    }
+})
+
 export default router
