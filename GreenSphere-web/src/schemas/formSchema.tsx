@@ -16,11 +16,12 @@ export const formSchema = z.object({
     .refine((value) => !isNaN(value) && value >= 0 && value <= 100, {
       message: 'The discount must be a number between 0 and 100.',
     }),
-  label: z.enum(['Indoor', 'Outdoor'], {
+  labelOption: z.enum(['Indoor', 'Outdoor'], {
     errorMap: () => ({ message: 'Select one of the options: Indoor or Outdoor.' }),
   }),
   features: z.string().min(10, 'The features must have at least 10 characters.').max(200, 'The features must have at most 200 characters.'),
   description: z.string().min(10, 'The description must have at least 10 characters.').max(500, 'The description must have at most 500 characters.'),
+  label: z.string().optional(),
 });
 
 export type FormSchema = z.infer<typeof formSchema>;

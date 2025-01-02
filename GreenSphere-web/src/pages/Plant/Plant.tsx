@@ -9,8 +9,7 @@ import Label from '../../components/Label/Label';
 const Plant = () => {
   const { plantId } = useParams<{ plantId: string }>();
 
-  // Usar o hook `useFetchPlants` para buscar os dados
-  const { data: plants, loading, error } = useFetchPlants('https://run.mocky.io/v3/5371015a-8bee-41cc-a419-3c9b71404b58');
+  const { data: plants, loading, error } = useFetchPlants('https://run.mocky.io/v3/9161eb8d-fa56-45c7-aa2e-9fb38a6dbcee');
 
   if (loading) {
     return (
@@ -24,7 +23,6 @@ const Plant = () => {
     return <p style={{ color: 'red' }}>{error}</p>;
   }
 
-  // Filtrar a planta com o ID correspondente
   const plant = plants.find((p) => p.id === parseInt(plantId!, 10));
 
   if (!plant) {
@@ -46,7 +44,7 @@ const Plant = () => {
                 <Label key={index} text={label} />
               ))}
             </div>
-            <p>{plant.price}</p>
+            <p>${plant.price}</p>
             <div>
               <Button text="Check out" />
             </div>

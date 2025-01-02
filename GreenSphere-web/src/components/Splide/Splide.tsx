@@ -11,7 +11,7 @@ import { CarouselProps } from './Splide.types';
 
 const ImageCarousel: FC<CarouselProps> = ({ type }) => {
   const numberOfSlides = useSplide();
-  const { data: plants, loading, error } = useFetchPlants('https://run.mocky.io/v3/5371015a-8bee-41cc-a419-3c9b71404b58');
+  const { data: plants, loading, error } = useFetchPlants('https://run.mocky.io/v3/9161eb8d-fa56-45c7-aa2e-9fb38a6dbcee');
 
   if (loading) {
     return <p>Loading...</p>;
@@ -22,11 +22,7 @@ const ImageCarousel: FC<CarouselProps> = ({ type }) => {
   }
 
   const plantsInSale = plants?.filter((plant) => plant.isInSale) || [];
-  const bestSelling =
-    plants?.filter((plant) => {
-      const priceAsNumber = parseFloat(plant.price.replace('$', ''));
-      return priceAsNumber < 50;
-    }) || [];
+  const bestSelling = plants?.filter((plant) => plant.price < 50) || [];
 
   const carouselContent = type === 'plantsInSale' ? plantsInSale : bestSelling;
 
@@ -55,7 +51,7 @@ const ImageCarousel: FC<CarouselProps> = ({ type }) => {
                 </div>
                 <div>
                   <p>{plant.name}</p>
-                  <small>{plant.price}</small>
+                  <small>${plant.price}</small>
                 </div>
                 <div className={style.label}>
                   {plant.label.map((label, index) => (

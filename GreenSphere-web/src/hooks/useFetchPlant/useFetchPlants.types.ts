@@ -3,7 +3,7 @@ export interface Plant {
   name: string;
   subtitle: string;
   label: string[];
-  price: string;
+  price: number;
   isInSale: boolean;
   discountPercentage: number;
   features: string;

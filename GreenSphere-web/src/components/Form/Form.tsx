@@ -14,15 +14,19 @@ const Form = () => {
   const onSubmit = async (data: FormSchema) => {
     setIsSubmitting(true);
     try {
-      console.log(data);
-      const response = await axios.post('https://run.mocky.io/v3/5371015a-8bee-41cc-a419-3c9b71404b58', data);
+      const { type, ...rest } = data;
+      const formattedData = {
+        ...rest,
+        label: `${data.label}, ${type}`,
+      };
+
+      console.log(formattedData);
+      const response = await axios.post('https://run.mocky.io/v3/5371015a-8bee-41cc-a419-3c9b71404b58', formattedData);
       console.log('Success post: ', response.data);
       await fetchData();
       setMessage('Plant successfully registered!');
       reset();
-      setTimeout(() => {
-        setMessage('');
-      }, 2000);
+      setTimeout(() => setMessage(''), 2000);
     } catch (error) {
       setMessage('Failed to register the plant. Please try again.');
       console.error('Failed post: ', error);
@@ -70,11 +74,11 @@ const Form = () => {
         <label>Label: {errors.label && <small className={style.errorMessage}>{errors.label.message}</small>}</label>
         <div className={style.formRadioGroup}>
           <label>
-            <input type="radio" value="Indoor" {...register('label')} className={style.radioInput} />
+            <input type="radio" value="Indoor" {...register('labelOption')} className={style.radioInput} />
             <p>Indoor</p>
           </label>
           <label>
-            <input type="radio" value="Outdoor" {...register('label')} className={style.radioInput} />
+            <input type="radio" value="Outdoor" {...register('labelOption')} className={style.radioInput} />
             <p>Outdoor</p>
           </label>
         </div>
