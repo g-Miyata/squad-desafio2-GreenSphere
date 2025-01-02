@@ -20,13 +20,13 @@ const PlantSchema = zod_1.z.object({
     price: zod_1.z.number().positive(),
     isInSale: zod_1.z.boolean(),
     discountPercentage: zod_1.z.number().min(0).max(100),
-    label: zod_1.z.enum(['indoor', 'outdoor']), // Validação do enum
+    label: zod_1.z.enum(['Indoor', 'Outdoor']),
     plantType: zod_1.z.string(),
     features: zod_1.z.string().min(10),
     description: zod_1.z.string().min(10),
-    imgUrl: zod_1.z.string().url(),
+    imgUrl: zod_1.z.string(),
 });
-router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const validatedData = PlantSchema.parse(req.body);
         const plant = yield prisma.plant.create({ data: validatedData });
@@ -34,11 +34,11 @@ router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
     catch (error) {
         if (error instanceof zod_1.z.ZodError) {
-            res.status(400).json({ error: "Dados inválidos", details: error.errors });
+            res.status(400).json({ error: 'Dados inválidos', details: error.errors });
         }
         else {
-            console.error("Erro ao criar a planta:", error); // Log do erro
-            res.status(500).json({ error: "Erro ao criar a planta" });
+            console.error('Erro ao criar a planta:', error); // Log do erro
+            res.status(500).json({ error: 'Erro ao criar a planta' });
         }
     }
 }));

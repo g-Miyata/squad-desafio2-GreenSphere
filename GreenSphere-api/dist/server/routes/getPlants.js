@@ -15,16 +15,11 @@ const router = (0, express_1.Router)();
 const prisma = new client_1.PrismaClient();
 router.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        console.log("teste log");
         const plants = yield prisma.plant.findMany();
-        const plantsWithLabels = plants.map((plant) => {
-            const labels = plant.label.split(',').map((label) => label.trim());
-            return Object.assign(Object.assign({}, plant), { label: labels });
-        });
-        res.status(200).json(plantsWithLabels);
+        res.status(200).json(plants);
     }
     catch (error) {
-        res.status(500).json({ error: "Erro ao encontrar planta" });
+        res.status(500).json({ error: "Erro ao criar a planta" });
     }
 }));
 router.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
