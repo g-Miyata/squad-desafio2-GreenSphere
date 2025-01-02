@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import style from './Products.module.css';
 import Titles from '../../components/Titles/Titles';
 const Products: React.FC = () => {
-  const { data, loading, error } = useFetchPlants('https://run.mocky.io/v3/5371015a-8bee-41cc-a419-3c9b71404b58');
+  const { data, loading, error } = useFetchPlants('https://localhost:3000/plants');
 
   if (loading)
     return (
