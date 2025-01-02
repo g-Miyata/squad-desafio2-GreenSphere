@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
-import { Plant } from './useFetchPlants.types';
+import { Plant } from './Plant.types';
 
-const useFetchPlants = (url: string) => {
+import { fetchPlants } from '../../services/plantsService';
+
+const useFetchPlants = () => {
   const [data, setData] = useState<Plant[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -10,15 +11,15 @@ const useFetchPlants = (url: string) => {
   const fetchData = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await axios.get<{ plants: Plant[] }>(url);
-      setData(response.data.plants);
+      const plants = await fetchPlants();
+      setData(plants);
       setError(null);
     } catch (err: any) {
-      setError(err.message || 'Erro ao buscar dados');
+      setError(err.message || 'Error fetching data');
     } finally {
       setLoading(false);
     }
-  }, [url]);
+  }, []);
 
   useEffect(() => {
     fetchData();

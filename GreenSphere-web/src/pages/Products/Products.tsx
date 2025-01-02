@@ -1,13 +1,14 @@
 import React from 'react';
-import useFetchPlants from '../../hooks/useFetchPlant/useFetchPlants';
+import useFetchPlants from '../../hooks/API/useFetchPlants';
 import Loader from '../../components/Loader/Loader';
 import Label from '../../components/Label/Label';
 import Button from '../../components/Button/Button';
 import { Link } from 'react-router-dom';
 import style from './Products.module.css';
 import Titles from '../../components/Titles/Titles';
+
 const Products: React.FC = () => {
-  const { data, loading, error } = useFetchPlants('https://localhost:3000/plants');
+  const { data, loading, error } = useFetchPlants();
 
   if (loading)
     return (
@@ -22,26 +23,29 @@ const Products: React.FC = () => {
       <Titles titleText="Our Products" />
       <div className={style.contentContainer}>
         <ul className={style.list}>
-          {data.map((plant) => (
-            <li key={plant.id}>
-              <div className={style.cardBody}>
-                <div className={style.imgContainer}>
-                  <img src={plant.imgUrl} alt={plant.name} />
+          {data && data.length > 0 ? (
+            data.map((plant) => (
+              <li key={plant.id}>
+                <div className={style.cardBody}>
+                  <div className={style.imgContainer}>
+                    <img src={plant.imgUrl} alt={plant.name} />
+                  </div>
+                  <div>
+                    <p>{plant.name}</p>
+                  </div>
+                  <div className={style.label}>
+                    <Label text={plant.label} />
+                    <Label text={plant.plantType} />
+                  </div>
+                  <Link to={`/plants/${plant.id}`} className={style.button}>
+                    <Button text="Buy now" />
+                  </Link>
                 </div>
-                <div>
-                  <p>{plant.name}</p>
-                </div>
-                <div className={style.label}>
-                  {plant.label.map((label, index) => (
-                    <Label key={index} text={label} />
-                  ))}
-                </div>
-                <Link to={`/Plant/${plant.id}`} className={style.button}>
-                  <Button text="Buy now" />
-                </Link>
-              </div>
-            </li>
-          ))}
+              </li>
+            ))
+          ) : (
+            <p>No plants available.</p>
+          )}
         </ul>
       </div>
     </div>
