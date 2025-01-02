@@ -15,7 +15,7 @@ app.use(express_1.default.json());
 // app.get('/', (req, res) => {
 //     res.json({ message: 'teste com typescript' })
 // })  
-app.use("/", getPlants_1.default);
+app.use("/plants", getPlants_1.default);
 app.use("/", createPlant_1.default);
 app.use("/", deletePlant_1.default);
 app.listen(PORT, () => {

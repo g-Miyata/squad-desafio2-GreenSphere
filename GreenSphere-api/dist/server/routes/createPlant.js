@@ -11,16 +11,32 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const client_1 = require("@prisma/client");
+const zod_1 = require("zod");
 const router = (0, express_1.Router)();
 const prisma = new client_1.PrismaClient();
+const createPlantSchema = zod_1.z.object({
+    name: zod_1.z.string().min(3, "O nome da planta deve ter pelo menos 3 letas"),
+    subtitle: zod_1.z.string().min(3, "O subtitulo deve ter pelo menos 3 letras"),
+    price: zod_1.z.number().positive("O preço deve ser um número positivo."),
+    isInSale: zod_1.z.boolean(),
+    discountPercentage: zod_1.z.number().min(0).max(100, "O desconto deve estar entre 0 e 100."),
+    label: zod_1.z.string().min(3, "Os tipos da planta deve ter pelo menos 3 letras"),
+    features: zod_1.z.string().min(10, "As características devem ter pelo menos 10 caracteres."),
+    description: zod_1.z.string().min(10, "A descrição deve ter pelo menos 10 caracteres.")
+});
 router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const plant = yield prisma.plant.create({ data: req.body });
-        console.log("Dados recebidos:", req.body);
+        const validatedData = createPlantSchema.parse(req.body);
+        const plant = yield prisma.plant.create({ data: validatedData });
         res.status(201).json(plant);
     }
     catch (error) {
-        res.status(500).json({ error: "Erro ao criar a planta" });
+        if (error instanceof zod_1.z.ZodError) {
+            res.status(400).json({ error: "Dados inválidos", detailes: error.errors });
+        }
+        else {
+            res.status(500).json({ error: "Erro ao criar a planta" });
+        }
     }
 }));
 exports.default = router;
