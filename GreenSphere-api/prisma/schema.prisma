@@ -15,8 +15,8 @@ model Plant {
   plantType           String
   price               Float
   isInSale            Boolean
-  discountPercentage  Int?
+  discountPercentage  Float
   features            String
   description         String
-  imgUrl              String?
+  imgUrl              String
 }
