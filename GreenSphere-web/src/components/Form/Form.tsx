@@ -3,30 +3,33 @@ import { FormSchema } from '../../schemas/formSchema';
 import style from './Form.module.css';
 import Button from '../Button/Button';
 import axios from 'axios';
-import useFetchPlants from '../../hooks/useFetchPlant/useFetchPlants';
+import useFetchPlants from '../../hooks/API/useFetchPlants';
 import { useState } from 'react';
+import defaultImg from '../../assets/images/default.png';
 const Form = () => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [message, setMessage] = useState<string>('');
   const { register, handleSubmit, reset, errors } = useForms();
-  const { fetchData } = useFetchPlants('https://run.mocky.io/v3/5371015a-8bee-41cc-a419-3c9b71404b58');
+  const { fetchData } = useFetchPlants();
 
   const onSubmit = async (data: FormSchema) => {
+    const postData = {
+      ...data,
+      isInSale: data.discountPercentage > 0 ? true : false,
+      imgUrl: data.imgUrl || defaultImg,
+    };
+
+    console.log('Discount Percentage:', data.discountPercentage);
     setIsSubmitting(true);
     try {
-      const { type, ...rest } = data;
-      const formattedData = {
-        ...rest,
-        label: `${data.label}, ${type}`,
-      };
-
-      console.log(formattedData);
-      const response = await axios.post('https://run.mocky.io/v3/5371015a-8bee-41cc-a419-3c9b71404b58', formattedData);
-      console.log('Success post: ', response.data);
+      await axios.post('http://localhost:3000/register', postData);
+      console.log('Post Data:', postData);
       await fetchData();
       setMessage('Plant successfully registered!');
       reset();
-      setTimeout(() => setMessage(''), 2000);
+      setTimeout(() => {
+        setMessage('');
+      }, 2000);
     } catch (error) {
       setMessage('Failed to register the plant. Please try again.');
       console.error('Failed post: ', error);
@@ -53,8 +56,8 @@ const Form = () => {
         <input type="text" id="subtitle" placeholder="A majestic addition to your plant collection" {...register('subtitle')} />
       </div>
       <div className={style.formGroup}>
-        <label htmlFor="type">Plant type {errors.type && <small className={style.errorMessage}>{errors.type.message}</small>}</label>
-        <input type="text" id="type" placeholder="Cactus" {...register('type')} />
+        <label htmlFor="type">Plant type {errors.plantType && <small className={style.errorMessage}>{errors.plantType.message}</small>}</label>
+        <input type="text" id="plantType" placeholder="Cactus" {...register('plantType')} />
       </div>
       <div className={style.formGroup}>
         <div className={style.prices}>
@@ -65,8 +68,8 @@ const Form = () => {
           </div>
           <div>
             <label htmlFor="discount">Discount percentage</label>
-            <input type="number" id="discount" placeholder="20%" {...register('discount')} />
-            {errors.discount && <small className={style.errorMessage}>{errors.discount.message}</small>}
+            <input type="number" id="discount" placeholder="20%" {...register('discountPercentage')} />
+            {errors.discountPercentage && <small className={style.errorMessage}>{errors.discountPercentage.message}</small>}
           </div>
         </div>
       </div>
@@ -74,11 +77,11 @@ const Form = () => {
         <label>Label: {errors.label && <small className={style.errorMessage}>{errors.label.message}</small>}</label>
         <div className={style.formRadioGroup}>
           <label>
-            <input type="radio" value="Indoor" {...register('labelOption')} className={style.radioInput} />
+            <input type="radio" value="Indoor" {...register('label')} className={style.radioInput} />
             <p>Indoor</p>
           </label>
           <label>
-            <input type="radio" value="Outdoor" {...register('labelOption')} className={style.radioInput} />
+            <input type="radio" value="Outdoor" {...register('label')} className={style.radioInput} />
             <p>Outdoor</p>
           </label>
         </div>

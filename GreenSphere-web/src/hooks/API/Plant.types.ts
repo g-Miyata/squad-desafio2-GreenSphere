@@ -2,7 +2,8 @@ export interface Plant {
   id: number;
   name: string;
   subtitle: string;
-  label: string[];
+  label: string;
+  plantType: string;
   price: number;
   isInSale: boolean;
   discountPercentage: number;

@@ -1,29 +1,26 @@
 import { useParams } from 'react-router-dom';
+import useFetchPlant from '../../hooks/API/useFetchPlant';
 import Button from '../../components/Button/Button';
 import Titles from '../../components/Titles/Titles';
 import style from './Plant.module.css';
-import useFetchPlants from '../../hooks/useFetchPlant/useFetchPlants';
 import Loader from '../../components/Loader/Loader';
 import Label from '../../components/Label/Label';
 
 const Plant = () => {
   const { plantId } = useParams<{ plantId: string }>();
-
-  const { data: plants, loading, error } = useFetchPlants('https://run.mocky.io/v3/9161eb8d-fa56-45c7-aa2e-9fb38a6dbcee');
+  const { data: plant, loading, error } = useFetchPlant(plantId!);
 
   if (loading) {
     return (
-      <p>
-        <Loader />;
-      </p>
+      <div className={style.loader}>
+        <Loader />
+      </div>
     );
   }
 
   if (error) {
     return <p style={{ color: 'red' }}>{error}</p>;
   }
-
-  const plant = plants.find((p) => p.id === parseInt(plantId!, 10));
 
   if (!plant) {
     return <p>Planta não encontrada.</p>;
@@ -40,9 +37,8 @@ const Plant = () => {
             <Titles titleText={plant.name} />
             <h2>{plant.subtitle}</h2>
             <div className={style.labels}>
-              {plant.label.map((label, index) => (
-                <Label key={index} text={label} />
-              ))}
+              <Label text={plant.label} />
+              <Label text={plant.plantType} />
             </div>
             <p>${plant.price}</p>
             <div>
