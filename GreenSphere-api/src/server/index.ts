@@ -13,7 +13,7 @@ app.use(express.json())
 //     res.json({ message: 'teste com typescript' })
 // })  
 
-app.use("/", getPlants)
+app.use("/plants", getPlants)
 app.use("/", createPlant)
 app.use("/", deletePlant)
 
