@@ -22,4 +22,14 @@ router.get("/", (_, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(500).json({ error: "Erro ao criar a planta" });
     }
 }));
+router.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const id = Number(req.params.id);
+        const plantId = yield prisma.plant.findUnique({ where: { id } });
+        res.status(200).json(plantId);
+    }
+    catch (_a) {
+        res.status(404).json({ error: "Planta não encontrada" });
+    }
+}));
 exports.default = router;
