@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:./prisma/dev.db"
 }
 
 model Plant {
@@ -19,4 +19,13 @@ model Plant {
   features            String
   description         String
   imgUrl              String
+  type                Type?      @relation(fields: [typeId], references: [id])
+  typeId              Int?       @unique
+}
+ 
+model Type{
+  id                  Int       @id @default(autoincrement())
+  typeName            String
+  plant               Plant?     
+  plantId             Int?      @unique
 }
