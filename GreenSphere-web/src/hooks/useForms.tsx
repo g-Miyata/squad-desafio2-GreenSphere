@@ -16,5 +16,5 @@ export const useForms = () => {
     },
   });
 
-  return { register, handleSubmit, reset, errors }; // Inclua reset no retorno
+  return { register, handleSubmit, reset, errors };
 };

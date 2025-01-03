@@ -15,7 +15,6 @@ const FlipCard = ({ age, role, devImg, icon, developed, name, education, company
 
   return (
     <div onClick={handleFlip} className={`${style.card} ${isFlipped ? style.flipped : ''}`}>
-      {/* Frente do card */}
       <div className={`${style.cardFace} ${style.cardFront}`}>
         <img src={devImg} alt={name} />
         <div className={style.info}>

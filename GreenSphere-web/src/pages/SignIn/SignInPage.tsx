@@ -10,7 +10,7 @@ const SignInPage = () => {
         <p>Welcome!</p>
         <img src={logo} alt="Green Sphere Logo" />
         <h1>Green Sphere</h1>
-        <p>Login in to access the store</p>
+        <p>Log in to access the store</p>
         <SignInButton mode="modal" forceRedirectUrl="/welcome">
           <button>Login</button>
         </SignInButton>

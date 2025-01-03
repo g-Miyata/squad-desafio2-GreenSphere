@@ -13,11 +13,11 @@
 }
 
 .container:visited {
-  color: #354733; /* Remove a cor roxa após clicar */
+  color: #354733;
 }
 
 .container:active {
-  color: #354733; /* Remove a cor vermelha ao clicar */
+  color: #354733;
 }
 
 @keyframes highlighted {

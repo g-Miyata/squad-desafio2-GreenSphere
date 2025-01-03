@@ -1,8 +1,8 @@
 .header {
   display: flex;
   margin: 0;
-  padding-bottom: 1.25rem; /* 20px */
-  padding-top: 1.25rem; /* 20px */
+  padding-bottom: 1.25rem;
+  padding-top: 1.25rem;
   justify-content: space-between;
   align-items: center;
   background-color: #f1f2ef;
@@ -10,24 +10,24 @@
 }
 
 .header div {
-  padding-left: 1.875rem; /* 30px */
-  padding-right: 1.875rem; /* 30px */
+  padding-left: 1.875rem;
+  padding-right: 1.875rem;
 }
 
 .header img {
-  width: 3rem; /* 30px */
+  width: 3rem;
 }
 
 .header ul {
   display: flex;
   list-style-type: none;
-  gap: 1.875rem; /* 30px */
+  gap: 1.875rem;
 }
 
 .header ul li {
-  font-size: -1rem; /* Mantém o tamanho padrão da fonte (16px) */
+  font-size: -1rem;
   white-space: nowrap;
-  margin-right: 0.625rem; /* 10px */
+  margin-right: 0.625rem;
   cursor: pointer;
 }
 

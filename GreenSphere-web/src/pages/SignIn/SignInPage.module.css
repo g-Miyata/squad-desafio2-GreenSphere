@@ -39,7 +39,7 @@
   margin-right: 1rem;
 }
 .content:hover {
-  background-size: 200%; /* Aumenta o tamanho do gradiente radial */
+  background-size: 200%;
 }
 
 .content button {

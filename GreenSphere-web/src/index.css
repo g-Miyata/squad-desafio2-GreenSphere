@@ -5,7 +5,6 @@ body,
   padding: 0;
   height: 100vh;
   min-width: 50rem;
-  /* Evita rolagem horizontal */
 }
 
 * {
