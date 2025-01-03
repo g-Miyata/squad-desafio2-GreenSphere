@@ -1,3 +1,3 @@
 export interface CarouselProps {
-  type: 'plantsInSale' | 'bestSelling';
+  type: 'plantsInSale' | 'bestSelling' | 'all' | 'outdoor' | 'indoor';
 }
