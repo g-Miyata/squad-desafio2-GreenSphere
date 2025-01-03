@@ -21,15 +21,21 @@ const PlantSchema = zod_1.z.object({
     isInSale: zod_1.z.boolean(),
     discountPercentage: zod_1.z.number().min(0).max(100),
     label: zod_1.z.enum(['Indoor', 'Outdoor']),
-    plantType: zod_1.z.string(),
     features: zod_1.z.string().min(10),
     description: zod_1.z.string().min(10),
     imgUrl: zod_1.z.string(),
+    type: zod_1.z.number(),
 });
 router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const validatedData = PlantSchema.parse(req.body);
-        const plant = yield prisma.plant.create({ data: validatedData });
+        const plant = yield prisma.plant.create({
+            data: Object.assign(Object.assign({}, validatedData), { type: {
+                    connect: {
+                        id: validatedData.type,
+                    },
+                } }),
+        });
         res.status(201).json(plant);
     }
     catch (error) {
@@ -38,7 +44,7 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
         else {
             console.error('Erro ao criar a planta:', error); // Log do erro
-            res.status(500).json({ error: 'Erro ao criar a planta' });
+            res.status(500).json({ error: 'Erro ao criar   a planta' });
         }
     }
 }));
