@@ -3,20 +3,24 @@
   flex-direction: column;
   align-items: center;
   max-width: 30rem;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 .container p {
   text-align: center;
-  white-space: wrap;
   margin-top: 3rem;
-  padding: 0rem 2rem 0rem;
+  padding: 0 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .imgContainer {
   background-color: #354733;
   padding: 1.4rem;
   border-radius: 50%;
-  align-content: center;
+  align-items: center;
+  justify-content: center;
   display: flex;
   margin-bottom: 4rem;
 }
@@ -30,4 +34,62 @@
   color: black;
   font-size: 2rem;
   font-family: 'Lato-Regular';
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%; 
+    padding: 0 1rem; 
+  }
+
+  .container p {
+    margin-top: 1.5rem; 
+    padding: 0 1rem; 
+  }
+
+  .imgContainer {
+    padding: 1rem; 
+    margin-bottom: 2.5rem; 
+  }
+
+  .imgContainer img {
+    height: 2.5rem; 
+    width: 2.5rem;
+  }
+
+  .container h1 {
+    font-size: 1.5rem; 
+  }
+}
+
+/* Responsividade para telas menores que 480px (celulares em modo retrato) */
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%; 
+    padding: 1rem;
+  }
+
+  .container p {
+    padding: 0 1rem;
+    font-size: 0.9rem; 
+    margin-top: 1rem;
+    line-height: 1.4;
+  }
+
+  .imgContainer {
+    padding: 0.8rem; /* Reduz o padding */
+  
+  }
+
+  .imgContainer img {
+    height: 1.8rem; /* Imagem um pouco menor */
+    width: 1.8rem;
+  }
+
+  .container h1 {
+    font-size: 1.2rem; 
+  }
 }

@@ -13,11 +13,11 @@
 }
 
 .container:visited {
-  color: #354733;
+  color: #354733; /* Remove a cor roxa após clicar */
 }
 
 .container:active {
-  color: #354733;
+  color: #354733; /* Remove a cor vermelha ao clicar */
 }
 
 @keyframes highlighted {
@@ -80,4 +80,73 @@
 
 .label p {
   margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .splideBody {
+    width: 80%; /* Reduz a largura da splideBody em telas menores */
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .container {
+    padding: 2rem;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .splideBody p {
+    font-size: 1rem; /* Ajusta o tamanho da fonte */
+  }
+}
+
+@media (max-width: 768px) {
+  .splideBody {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .imgContainer img {
+    object-fit: cover;
+    width: 100%;
+    height: auto; /* Faz com que a imagem se ajuste ao tamanho da tela */
+  }
+
+  .container {
+    flex-direction: column; /* Torna o container empilhado em telas pequenas */
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .splideBody p {
+    font-size: 1rem;
+    margin-left: 1rem; /* Ajusta o espaçamento em telas menores */
+  }
+
+  .splideBody small {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .splideBody {
+    width: 100%;
+    margin-bottom: 1rem ;
+  
+  }
+
+  .container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .splideBody p {
+    font-size: 0.9rem;
+  }
+
+  .splideBody small {
+    font-size: 0.8rem;
+  }
 }

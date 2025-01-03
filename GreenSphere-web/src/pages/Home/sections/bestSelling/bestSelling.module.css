@@ -1,20 +1,77 @@
+
 .container {
   padding: 0;
   display: flex;
   align-items: space-around;
   width: 100%;
-  height: 100vh;
+  height: auto;
   margin: 0;
-  min-width: 70rem;
+  min-width: 100%;
+  max-width: 100%;
+  background-color: #f1f2ef;
+  overflow: hidden;
   background-color: #f1f2ef;
 }
 
 .container h1 {
   text-align: center;
   margin-top: 2rem;
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
 }
+
 .bestSelling {
-  margin-left: 6.5rem;
+  margin-left: 1%;
   overflow-x: hidden;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    min-width: 100%;  /* Remove a largura mínima para telas menores */
+    padding: 1rem;  /* Adiciona um pouco de padding para telas médias */
+  }
+
+  .bestSelling {
+    margin-left: 2rem; /* Reduz a margem esquerda para telas menores */
+  }
+
+  .container h1 {
+    font-size: 3rem;  /* Reduz o tamanho do título */
+    margin-bottom: 5rem; /* Ajusta a margem inferior */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;  /* Muda o layout para coluna em telas pequenas */
+    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+    height: auto;  /* Ajusta a altura para se adequar ao conteúdo */
+    padding: 1rem;
+  }
+
+  .bestSelling {
+    margin-left: 0;  /* Remove a margem esquerda para celulares */
+    margin-bottom: 2rem;  /* Adiciona um pouco de espaço abaixo */
+  }
+
+  .container h1 {
+    font-size: 2.5rem;  /* Ajusta o tamanho do título para telas pequenas */
+    margin-bottom: 3rem;  /* Ajusta a margem inferior */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem; 
+  /* Adiciona padding para telas muito pequenas */
+  }
+
+  .container h1 {
+    font-size: 2rem;  /* Ajusta o tamanho do título para telas muito pequenas */
+    margin-bottom: 2rem;  /* Reduz a margem inferior */
+  }
+
+  .bestSelling {
+    margin-left: 0;
+  }
 }

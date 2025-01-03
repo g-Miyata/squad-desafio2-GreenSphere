@@ -19,3 +19,16 @@
   margin-left: -1.5rem;
   color: #354733;
 }
+
+@media (max-width: 768px) {
+  .loader {
+    font-size: 2.5rem; /* Reduz o tamanho do loader */
+  }
+}
+
+/* Responsividade para telas menores que 480px (dispositivos móveis) */
+@media (max-width: 480px) {
+  .loader {
+    font-size: 2rem; /* Reduz ainda mais o tamanho do loader */
+  }
+}

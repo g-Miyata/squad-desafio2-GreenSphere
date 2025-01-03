@@ -1,33 +1,39 @@
 .header {
   display: flex;
   margin: 0;
-  padding-bottom: 1.25rem;
-  padding-top: 1.25rem;
+  padding-bottom: 1.25rem; /* 20px */
+  padding-top: 1.25rem; /* 20px */
   justify-content: space-between;
   align-items: center;
   background-color: #f1f2ef;
-  min-width: 70rem;
+  min-width: 100%;
 }
 
 .header div {
-  padding-left: 1.875rem;
-  padding-right: 1.875rem;
+  flex: 1;
+  padding-left: 1.875rem; /* 30px */
+  padding-right: 1.875rem; /* 30px */
 }
 
 .header img {
-  width: 3rem;
+  width: 3rem; /* 30px */
 }
 
 .header ul {
   display: flex;
+  flex-wrap: wrap; /* Permitir quebra de linha em telas menores */
   list-style-type: none;
-  gap: 1.875rem;
+  gap: 1.25rem; /* Espaçamento entre os itens */
+  justify-content: center; /* Centralizar os itens */
+  width: 100%; /* Ocupa toda a largura */
+  padding: 0;
+  margin: 0;/* 30px */
 }
 
 .header ul li {
-  font-size: -1rem;
+  font-size: 1rem;
   white-space: nowrap;
-  margin-right: 0.625rem;
+  margin: 0 auto; /* Centraliza os itens na lista */
   cursor: pointer;
 }
 
@@ -39,3 +45,66 @@
 .header .activeLink {
   color: #8a9b6e;
 }
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .header div {
+    padding-left: 1.25rem; /* Reduzir o padding para telas menores */
+    padding-right: 1.25rem;
+  }
+
+  .header img {
+    width: 2rem; /* Reduzir o tamanho da imagem */
+  }
+
+  .header ul {
+    flex-direction: column;
+    gap: 1rem; /* Reduzir o espaço entre os itens */
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .header ul li {
+    font-size: 1rem; /* Aumentar um pouco o tamanho da fonte */
+    margin-right: 0; /* Remover a margem à direita */
+    padding: 0.5rem 0; /* Adicionar padding para separar melhor os itens */
+  }
+
+  .header ul li a {
+    padding: 0.5rem 0;
+    text-align: center;
+  }
+}
+
+/* Responsividade para telas menores que 480px (celulares em modo retrato) */
+@media (max-width: 480px) {
+  .header {
+    padding: 0.5rem; /* Reduz o padding para dispositivos menores */
+    align-items: center;/* Reduzir o padding para dispositivos móveis */
+  }
+
+  .header img {
+    width: 2rem; /* Ajustar a imagem */
+  }
+
+  .header ul {
+    gap: 0.5rem; /* Reduzir o espaço entre os itens */
+    padding-left: 0;
+    width: 100%; /* Garantir que se ajuste ao container */
+  }
+
+  .header ul li {
+    font-size: 0.85rem; /* Ajustar o tamanho da fonte */
+    margin-right: 0; /* Remover margem */
+    padding: 0.25rem 0; /* Ajustar padding */
+    text-align: center;
+  }
+}
+

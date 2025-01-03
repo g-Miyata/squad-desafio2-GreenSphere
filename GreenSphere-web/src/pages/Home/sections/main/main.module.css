@@ -1,12 +1,16 @@
 .home {
-  height: calc(100vh - 5.2rem);
-  padding: 0;
-  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
   background-image: url('../../../../assets/images/1bg-image-home.png');
   background-size: cover;
   background-position: bottom right;
   background-repeat: no-repeat;
-  min-width: 70rem;
+  width: 100%; 
+  max-width: 100%; 
 }
 
 .home section {
@@ -55,4 +59,104 @@
 .link p {
   margin-bottom: 0.5rem;
   color: #87897d;
+}
+
+@media (max-width: 1024px) {
+  .home {
+    min-width: 100%;  /* Ajusta para tela de tablet ou menor */
+    background-position: top center; /* Ajusta a posição da imagem */
+  }
+
+  .home section {
+    padding-top: 15%;
+  }
+
+  .home section > p {
+    margin-left: 2rem; /* Ajusta o alinhamento para telas menores */
+  }
+
+  .home article {
+    margin-left: 2rem;  /* Ajusta o alinhamento */
+  }
+
+  .home h2 {
+    font-size: 0.9rem; /* Reduz o tamanho da fonte */
+  }
+
+  .link {
+    margin-left: 2rem;  /* Ajusta o alinhamento */
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    height: auto;  /* Ajusta para dispositivos móveis */
+    min-width: 100%;
+    background-size: cover;  /* Mantém a imagem responsiva */
+    background-position: center center;
+  }
+
+  .home section {
+    padding-top: 20%;  /* Ajusta o padding para dispositivos móveis */
+  }
+
+  .home section > p {
+    margin-left: 1rem;  /* Diminui a margem à esquerda */
+    font-size: 0.9rem;  /* Ajusta o tamanho da fonte */
+  }
+
+  .home article {
+    margin-left: 1rem;  /* Ajusta o alinhamento */
+  }
+
+  .home h2 {
+    font-size: 0.8rem;  /* Ajusta o tamanho da fonte */
+  }
+
+  .link {
+    margin-left: 1rem;  /* Ajusta o alinhamento */
+  }
+
+  .link p {
+    font-size: 0.8rem;  /* Ajusta o tamanho da fonte do link */
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    background-size: contain; 
+    /*background-image: none;*/
+    background-position: top center;
+    background-repeat: no-repeat;
+    
+  }
+
+   .discover{
+    font-size: 0.8rem;
+  }
+
+  .home section {
+    padding-top: 25%;
+  }
+
+  .home section > p {
+    margin-left: 0.8rem;  
+    font-size: 0.8rem;  
+  }
+
+  .home article {
+    margin-left: 0.5rem;  
+  }
+
+  .home h2 {
+    font-size: 0.7rem;  
+  }
+
+  .link {
+    margin-left: 0.5rem;  
+  }
+
+  .link p {
+    font-size: 0.7rem;  
+  }
 }

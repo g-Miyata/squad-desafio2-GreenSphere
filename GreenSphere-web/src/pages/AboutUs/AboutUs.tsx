@@ -7,6 +7,7 @@ import BackEnd from '../../assets/images/backend.png';
 
 import FlipCard from '../../components/DevelopersCard/DevCard';
 import Titles from '../../components/Titles/Titles';
+import Footer from '../../components/Footer/Footer';
 const AboutUs = () => {
   return (
     <div className={style.container}>
@@ -21,6 +22,7 @@ const AboutUs = () => {
 
         <FlipCard email="vinicius.vezono123@gmail.com" devImg={Miyata} icon={BackEnd} developed="Back End" name="Vinicius Vezono" education="Systems Analysis and Development" company="IFSP - Federal Institute of São Paulo" role="Student" age="19" location="Barretos - SP - Brazil" linkedin="https://www.linkedin.com/in/vinicius-vezono/" github="https://github.com/ViniciusVezono" />
       </div>
+      <Footer/>
     </div>
   );
 };

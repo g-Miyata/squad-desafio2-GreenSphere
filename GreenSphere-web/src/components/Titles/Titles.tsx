@@ -6,7 +6,16 @@ const Titles = ({ titleText, highlightText, text }: TextProps) => {
     <div className={styles.container}>
       <h1>
         {titleText && <span className={styles.titleText}>{titleText}</span>}&nbsp;
-        {highlightText && <span className={styles.highlightText}>{highlightText}</span>}
+        {highlightText && (
+          <span className={styles.highlightText}>
+            {highlightText.split('\n').map((line, index) => (
+              <span key={`highlight-line-${index}`}>
+                {line}
+                <br />
+              </span>
+            ))}
+          </span>
+        )}
       </h1>
       {text && (
         <p className={styles.text}>

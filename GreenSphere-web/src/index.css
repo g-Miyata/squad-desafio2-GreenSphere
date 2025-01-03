@@ -3,8 +3,9 @@ body,
 #root {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  min-width: 50rem;
+  overflow-x: hidden; /* Remove a rolagem horizontal */
+  width: 100%; /* Garante que o corpo ocupa 100% da largura */
+  box-sizing: border-box;
 }
 
 * {

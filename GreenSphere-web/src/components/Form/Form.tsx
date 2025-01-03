@@ -6,6 +6,7 @@ import axios from 'axios';
 import useFetchPlants from '../../hooks/API/useFetchPlants';
 import { useState } from 'react';
 import defaultImg from '../../assets/images/default.png';
+import Footer from '../Footer/Footer';
 const Form = () => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [message, setMessage] = useState<string>('');
@@ -42,6 +43,7 @@ const Form = () => {
   };
 
   return (
+    <div className={style.formContainer}>
     <form onSubmit={handleSubmit(onSubmit)} className={style.formContainer}>
       <header>
         <h1>Plant registration</h1>
@@ -99,6 +101,10 @@ const Form = () => {
         <Button text={isSubmitting ? 'Submitting...' : 'Register'} />
       </div>
     </form>
+    <div>
+    <Footer/>
+    </div>
+</div>
   );
 };
 

@@ -1,6 +1,7 @@
 import Title from '../../../../components/Titles/Titles';
 import ImageCarousel from '../../../../components/Splide/Splide';
 import style from './sales.module.css';
+import Footer from '../../../../components/Footer/Footer';
 const sales = () => {
   return (
     <div>
@@ -14,8 +15,10 @@ const sales = () => {
             <ImageCarousel type="plantsInSale" />
           </div>
         </section>
+        <Footer/>
       </div>
     </div>
+  
   );
 };
 

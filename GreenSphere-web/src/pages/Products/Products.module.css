@@ -1,8 +1,15 @@
 .container {
+  padding: 0;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height:auto;
+  margin: 0;
+  min-width: 100%;
+  max-width: 100%;
   align-items: center;
   background-color: #f1f2ef;
+  overflow: hidden;
 }
 
 .contentContainer {
@@ -19,11 +26,11 @@
 }
 
 .container:visited {
-  color: #354733;
+  color: #354733; /* Remove a cor roxa após clicar */
 }
 
 .container:active {
-  color: #354733;
+  color: #354733; /* Remove a cor vermelha ao clicar */
 }
 
 @keyframes highlighted {
@@ -91,4 +98,19 @@
 
 .button button {
   width: 100%;
+}
+
+@media screen and (max-width: 480px){
+  .container {
+    padding: 1rem;  
+  }
+
+  .container h1 {
+    font-size: 2rem;  
+    margin-bottom: 2rem;  
+  }
+
+  .sales {
+    margin-left: 0;
+  }
 }

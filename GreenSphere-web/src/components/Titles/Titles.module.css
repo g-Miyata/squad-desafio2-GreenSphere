@@ -17,6 +17,7 @@
 .highlightText {
   font-family: 'EBgaramond-Regular';
   color: #8a9b6e;
+  white-space: normal;
 }
 
 .text {
@@ -27,4 +28,49 @@
   margin-top: 1rem;
   margin-left: 0;
   margin-bottom: 2.5rem;
+}
+
+@media (max-width: 1024px) {
+  .container h1 {
+    font-size: 3.5rem; /* Reduz a fonte do título em telas menores */
+  }
+
+  .text {
+    font-size: 0.9rem; /* Ajusta o tamanho do texto */
+    margin-bottom: 1.5rem; /* Diminui a margem inferior */
+  }
+}
+
+@media (max-width: 768px) {
+  .container h1 {
+    font-size: 2.5rem; /* Ajusta o tamanho do título para telas menores */
+  }
+
+  .text {
+    font-size: 0.9rem;
+    margin-bottom: 1rem; /* Reduz a margem inferior */
+    white-space: normal; /* Permite que o texto quebre em várias linhas */
+  }
+}
+
+@media (max-width: 480px) {
+  .container h1 {
+    font-size: 2rem; /* Ajusta ainda mais o tamanho do título em telas muito pequenas */
+  }
+
+  .text {
+    font-size: 0.8rem; /* Ajusta o tamanho do texto */
+    margin-bottom: 0.8rem; /* Diminui a margem inferior */
+    white-space: normal; /* Garante que o texto quebre corretamente */
+  }
+
+  .titleText{
+    font-size: 1.2rem;
+  }
+
+  .highlightText{
+    font-size: 2rem;
+  }
+
+
 }

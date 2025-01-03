@@ -12,3 +12,26 @@
   font-size: 0.8rem;
   font-weight: normal;
 }
+
+@media (max-width: 768px) {
+  .label {
+    padding: 0.5rem; /* Diminui o padding */
+    border: 0.1rem solid #8a9b6e; /* Ajusta a espessura da borda */
+  }
+
+  .label p {
+    font-size: 0.7rem; /* Diminui o tamanho da fonte */
+  }
+}
+
+/* Responsividade para telas menores que 480px (dispositivos móveis em modo retrato) */
+@media (max-width: 480px) {
+  .label {
+    padding: 0.4rem; /* Diminui ainda mais o padding */
+    border: 0.1rem solid #8a9b6e; /* Ajusta a borda */
+  }
+
+  .label p {
+    font-size: 0.6rem; /* Diminui o tamanho da fonte para telas muito pequenas */
+  }
+}

@@ -1,10 +1,16 @@
+header{
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+ 
+}
+
 .container {
   display: flex;
   justify-content: center;
   padding: 0;
   width: 100%;
   margin: 0;
-  min-width: 70rem;
   background-color: #fcfcfc;
 }
 
@@ -12,18 +18,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 60vh;
   min-width: 60rem;
   text-align: center;
   white-space: wrap;
   width: 100%;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 .instructions header {
-  margin-top: 9rem;
-  margin-bottom: 0 !important;
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
   flex-grow: 1;
 }
 .cardsContainer {
@@ -31,10 +38,82 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
-
   flex-grow: 2;
 }
 
 .instructions header {
-  margin-bottom: 5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 4rem;
+  font-size: 2.5rem;
+  flex-grow: 1;
+}
+
+
+@media (max-width: 1024px) {
+  .instructions header{
+    font-size: 2rem;
+  }
+
+  .container {
+    min-width: 100%; 
+    padding: 1rem; 
+  }
+
+  .instructions {
+    min-width: 90%; 
+  }
+
+  .cardsContainer {
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+  }
+
+  .instructions header {
+    margin-top: 4rem; 
+  }
+}
+
+@media (max-width: 768px) {
+  
+  .container {
+    flex-direction: column;  
+    justify-content: flex-start;  
+    height: auto;  
+  }
+
+  .instructions {
+    min-width: 100%;  
+    padding: 2rem;
+  }
+
+  .instructions header {
+    margin-top: 2rem;
+    font-size: 1.8rem;  
+  }
+
+  .cardsContainer {
+    flex-direction: column;  
+    gap: 1rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  
+ 
+  .container {
+    flex-direction: column; 
+    margin-bottom: 0;
+  }
+  
+  .instructions {
+    height: auto;
+    padding: 1rem;
+
+  }
+  
+  .cardsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;  /* Ajusta o espaçamento entre os cards */
+  }
 }
