@@ -11,6 +11,3 @@ const Register = () => {
 };
 
 export default Register;
-{
-  /* <ImageCarousel /> */
-}
