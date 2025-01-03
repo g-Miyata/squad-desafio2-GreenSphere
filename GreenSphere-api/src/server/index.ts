@@ -3,6 +3,7 @@ import { PrismaClient } from '@prisma/client';
 import createPlant from './routes/createPlant';
 import getPlants from './routes/getPlants';
 import deletePlant from './routes/deletePlant';
+import typeRoute from './routes/typeRoute'
 import cors from 'cors';
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(cors());
 app.use('/plants', getPlants);
 app.use('/register', createPlant);
 app.use('/plants', deletePlant);
+app.use('/types', typeRoute)
 
 app.listen(PORT, () => {
   console.log(`Servidor está rodando na porta ${PORT}`);
