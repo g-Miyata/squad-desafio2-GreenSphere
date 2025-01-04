@@ -6,7 +6,7 @@ import nutrients from '../../../../assets/images/fertilizer.svg';
 import style from './instructions.module.css';
 const instructions = () => {
   return (
-    <div className={style.container}>
+    <div id="instructions" className={style.container}>
       <section className={style.instructions}>
         <header>
           <Titles titleText="steps to take care of your" highlightText="Plants" text={`By following these three steps - proper watering, appropriate sunlight, and providing essential nutrients - you will be well on your way to\nmaintaining healthy and thriving plants`} />

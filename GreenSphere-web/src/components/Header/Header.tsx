@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { UserButton } from '@clerk/clerk-react';
 import { useState } from 'react';
 import logo from '../../assets/images/logo.svg';
@@ -14,7 +14,9 @@ const Header = () => {
   return (
     <header className={style.header}>
       <div>
-        <img src={logo} title="Green Sphere Logo" alt="Green Sphere Logo" />
+        <Link to={'/'}>
+          <img src={logo} title="Green Sphere Logo" alt="Green Sphere Logo" />
+        </Link>
       </div>
       <button className={style.menuButton} onClick={toggleMenu} aria-label="Toggle menu">
         ☰

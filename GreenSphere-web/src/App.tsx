@@ -11,7 +11,7 @@ import Welcome from './pages/Welcome/Welcome';
 import { Navigate } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Plant from './pages/Plant/Plant';
-
+import { useEffect } from 'react';
 function App() {
   return (
     <>

@@ -54,6 +54,13 @@
   outline: none;
 }
 
+.formGroup select {
+  color: #d1d5db;
+}
+
+.option {
+  color: black;
+}
 .formGroup input:focus,
 .formGroup textarea:focus,
 .formGroup select:focus {

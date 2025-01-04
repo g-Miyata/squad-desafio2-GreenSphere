@@ -68,11 +68,11 @@ const Form = () => {
             valueAsNumber: true,
           })}
         >
-          <option value="" disabled>
+          <option value="" disabled className={style.option}>
             -- Select a Type --
           </option>
           {types.map((type) => (
-            <option key={type.id} value={type.id}>
+            <option key={type.id} value={type.id} className={style.option}>
               {type.typeName}
             </option>
           ))}
