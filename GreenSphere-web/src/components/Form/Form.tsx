@@ -2,45 +2,28 @@ import { useForms } from '../../hooks/useForms';
 import { FormSchema } from '../../schemas/formSchema';
 import style from './Form.module.css';
 import Button from '../Button/Button';
-import axios from 'axios';
-import useFetchPlants from '../../hooks/API/useFetchPlants';
-import { useState } from 'react';
+import usePostPlants from '../../hooks/API/usePostPlant';
 import defaultImg from '../../assets/images/default.png';
 import useFetchTypes from '../../hooks/API/useFetchTypes';
+
 const Form = () => {
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [message, setMessage] = useState<string>('');
   const { register, handleSubmit, reset, errors } = useForms();
-  const { fetchData } = useFetchPlants();
-  const { data: types } = useFetchTypes();
+  const { data: types, error } = useFetchTypes();
+  const { submitPlant, isSubmitting, message } = usePostPlants();
 
   const onSubmit = async (data: FormSchema) => {
     const postData = {
       ...data,
-      isInSale: data.discountPercentage > 0 ? true : false,
+      isInSale: data.discountPercentage > 0,
       imgUrl: data.imgUrl || defaultImg,
       type: data.typeId,
     };
 
-    console.log(postData);
-    setIsSubmitting(true);
     try {
-      await axios.post('http://localhost:3000/register', postData);
-      console.log('Post Data:', postData);
-      await fetchData();
-      setMessage('Plant successfully registered!');
+      await submitPlant(postData);
       reset();
-      setTimeout(() => {
-        setMessage('');
-      }, 2000);
     } catch (error) {
-      setMessage('Failed to register the plant. Please try again.');
-      console.error('Failed post: ', error);
-      setTimeout(() => {
-        setMessage('');
-      }, 2000);
-    } finally {
-      setIsSubmitting(false);
+      console.error('Error submitting the plant:', error);
     }
   };
 
@@ -60,6 +43,7 @@ const Form = () => {
       </div>
 
       <div className={style.formGroup}>
+        {error && <small className={style.errorMessage}>Error loading types: {error}</small>}
         <label htmlFor="type-select">Plant type {errors.typeId && <small className={style.errorMessage}>{errors.typeId.message}</small>} </label>
         <select
           id="type-select"

@@ -51,7 +51,7 @@ const Products: React.FC = () => {
                     </div>
                     <div className={style.label}>
                       <Label text={plant.label} />
-                      <Label text={plant.plantType} />
+                      <Label text={plant.plantType || ''} />
                     </div>
                     <Link to={`/plants/${plant.id}`} className={style.button}>
                       <Button text="Buy now" />
