@@ -1,18 +1,17 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Plant } from './Plant.types';
+import { Type } from '../../services/plantsTypes';
+import { fetchTypes } from '../../services/plantsService';
 
-import { fetchPlants } from '../../services/plantsService';
-
-const useFetchPlants = () => {
-  const [data, setData] = useState<Plant[]>([]);
+const useFetchTypes = () => {
+  const [data, setData] = useState<Type[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchData = useCallback(async () => {
     try {
       setLoading(true);
-      const plants = await fetchPlants();
-      setData(plants);
+      const types = await fetchTypes();
+      setData(types);
       setError(null);
     } catch (err: any) {
       setError(err.message || 'Error fetching data');
@@ -25,7 +24,7 @@ const useFetchPlants = () => {
     fetchData();
   }, [fetchData]);
 
-  return { data, loading, error, fetchData };
+  return { data, loading, error };
 };
 
-export default useFetchPlants;
+export default useFetchTypes;

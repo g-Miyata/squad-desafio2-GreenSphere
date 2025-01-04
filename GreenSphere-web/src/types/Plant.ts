@@ -3,11 +3,12 @@ export interface Plant {
   name: string;
   subtitle: string;
   label: string;
-  plantType: string;
+  plantType?: string;
   price: number;
   isInSale: boolean;
   discountPercentage: number;
   features: string;
   description: string;
   imgUrl: string;
+  typeId?: number;
 }

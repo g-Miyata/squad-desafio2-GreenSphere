@@ -8,6 +8,7 @@ import BackEnd from '../../assets/images/backend.png';
 import FlipCard from '../../components/DevelopersCard/DevCard';
 import Titles from '../../components/Titles/Titles';
 import Footer from '../../components/Footer/Footer';
+
 const AboutUs = () => {
   return (
     <div>

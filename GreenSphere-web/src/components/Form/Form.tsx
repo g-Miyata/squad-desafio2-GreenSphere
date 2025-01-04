@@ -6,17 +6,20 @@ import axios from 'axios';
 import useFetchPlants from '../../hooks/API/useFetchPlants';
 import { useState } from 'react';
 import defaultImg from '../../assets/images/default.png';
+import useFetchTypes from '../../hooks/API/useFetchTypes';
 const Form = () => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [message, setMessage] = useState<string>('');
   const { register, handleSubmit, reset, errors } = useForms();
   const { fetchData } = useFetchPlants();
+  const { data: types } = useFetchTypes();
 
   const onSubmit = async (data: FormSchema) => {
     const postData = {
       ...data,
       isInSale: data.discountPercentage > 0 ? true : false,
       imgUrl: data.imgUrl || defaultImg,
+      type: data.typeId,
     };
 
     console.log(postData);
@@ -55,9 +58,25 @@ const Form = () => {
         <label htmlFor="subtitle">Plant subtitle {errors.subtitle && <small className={style.errorMessage}>{errors.subtitle.message}</small>}</label>
         <input type="text" id="subtitle" placeholder="A majestic addition to your plant collection" {...register('subtitle')} />
       </div>
+
       <div className={style.formGroup}>
-        <label htmlFor="type">Plant type {errors.plantType && <small className={style.errorMessage}>{errors.plantType.message}</small>}</label>
-        <input type="text" id="plantType" placeholder="Cactus" {...register('plantType')} />
+        <label htmlFor="type-select">Plant type {errors.typeId && <small className={style.errorMessage}>{errors.typeId.message}</small>} </label>
+        <select
+          id="type-select"
+          defaultValue=""
+          {...register('typeId', {
+            valueAsNumber: true,
+          })}
+        >
+          <option value="" disabled>
+            -- Select a Type --
+          </option>
+          {types.map((type) => (
+            <option key={type.id} value={type.id}>
+              {type.typeName}
+            </option>
+          ))}
+        </select>
       </div>
       <div className={style.formGroup}>
         <div className={style.prices}>
