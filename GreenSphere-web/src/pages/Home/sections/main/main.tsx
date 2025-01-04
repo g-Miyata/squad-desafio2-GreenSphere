@@ -1,7 +1,7 @@
 import Titles from '../../../../components/Titles/Titles';
 import Button from '../../../../components/Button/Button';
 import style from './main.module.css';
-import { Link } from 'react-router-dom';
+
 const main = () => {
   return (
     <div>
