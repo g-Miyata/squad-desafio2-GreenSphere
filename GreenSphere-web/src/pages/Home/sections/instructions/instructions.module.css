@@ -3,16 +3,18 @@
   justify-content: center;
   padding: 0;
   width: 100%;
+  height: auto;
   margin: 0;
   min-width: 70rem;
   background-color: #fcfcfc;
+  padding-bottom: 10rem;
 }
 
 .instructions {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: auto;
   min-width: 60rem;
   text-align: center;
   white-space: wrap;
@@ -22,19 +24,101 @@
 }
 
 .instructions header {
-  margin-top: 9rem;
-  margin-bottom: 0 !important;
+  margin-top: 5.5rem;
   flex-grow: 1;
 }
+
 .cardsContainer {
   width: 100%;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-around;
-
   flex-grow: 2;
 }
 
 .instructions header {
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 480px) {
+  .container {
+    min-width: 100%;
+    height: auto;
+    padding-bottom: 0rem;
+  }
+
+  .instructions header {
+    margin-top: 1rem;
+    width: 20rem;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  .instructions header h1 {
+    font-size: 1.5rem;
+  }
+  .instructions header p span {
+    font-size: 0.8rem;
+  }
+  .cardsContainer {
+    height: auto;
+    flex-direction: column;
+    width: 20rem;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    min-width: 100%;
+    height: auto;
+  }
+
+  .instructions header {
+    margin-top: 1rem;
+    width: 30rem;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  .instructions header h1 {
+    font-size: 2rem;
+  }
+  .instructions header p span {
+    font-size: 0.9rem;
+  }
+  .cardsContainer {
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    min-width: 100%;
+    height: auto;
+  }
+
+  .instructions header {
+    margin-top: 1rem;
+    width: 45rem;
+    height: auto;
+    margin-bottom: 3rem;
+  }
+  .instructions header h1 {
+    font-size: 2.8rem;
+  }
+  .instructions header p span {
+    font-size: 1.2rem;
+  }
+  .cardsContainer {
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+  }
 }

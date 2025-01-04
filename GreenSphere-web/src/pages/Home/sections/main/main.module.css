@@ -56,3 +56,39 @@
   margin-bottom: 0.5rem;
   color: #87897d;
 }
+
+@media (max-width: 480px) {
+  .home {
+    min-width: 100%;
+  }
+  .home article {
+    margin-left: 0.5rem;
+  }
+  .home button {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .home {
+    min-width: 100%;
+  }
+  .home article {
+    margin-left: 4rem;
+  }
+  .home button {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .home {
+    min-width: 100%;
+  }
+  .home article {
+    margin-left: 4rem;
+  }
+  .home button {
+    padding: 1rem 2rem;
+  }
+}

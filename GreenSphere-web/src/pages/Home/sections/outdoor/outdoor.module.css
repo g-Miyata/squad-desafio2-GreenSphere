@@ -5,12 +5,13 @@
   padding: 0;
   padding-bottom: 2rem;
   margin: 0;
-  height: 100vh;
+  height: auto;
   background-color: #fcfcfc;
+  padding-bottom: 10rem;
 }
 
 .cardsContainer {
-  height: 100%;
+  height: auto;
   display: flex;
   margin: 0;
   width: 100%;
@@ -28,13 +29,12 @@
 
 .imgCardsContainer div {
   width: 20rem;
-  height: 85%;
+  height: 45rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border: none;
   flex-grow: 1;
-  overflow: hidden;
   background-color: #fff;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
@@ -48,6 +48,7 @@
 .card3 {
   box-shadow: none !important;
 }
+
 .cardTxt {
   display: flex;
   flex-direction: column;
@@ -57,8 +58,7 @@
   line-height: 1.8;
   font-size: 0.957rem;
   color: #87897d;
-  overflow-y: auto;
-  overflow-x: hidden;
+  height: auto;
   box-sizing: border-box;
 }
 
@@ -85,4 +85,79 @@
 .cardBtn button {
   margin-top: 1rem;
   margin-bottom: 2rem;
+}
+
+@media (max-width: 480px) {
+  .outdoor {
+    padding-bottom: 1rem;
+  }
+  .imgCardsContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    margin: 0;
+    height: auto;
+  }
+
+  .imgCardsContainer div {
+    max-width: 90%;
+    max-height: 20%;
+  }
+  .cardsContainer {
+    display: block;
+  }
+  .cardTxt {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .cardBtn button {
+    padding: 0.8rem 0.5rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .outdoor {
+    padding-bottom: 1rem;
+  }
+  .imgCardsContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    margin: 0;
+    height: auto;
+  }
+
+  .imgCardsContainer div {
+    width: 90%;
+    height: 20%;
+  }
+
+  .cardTxt {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .cardBtn button {
+    padding: 0.8rem 0.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .imgCardsContainer {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .imgCardsContainer div {
+    max-width: 80%rem;
+  }
+
+  .cardTxt {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
 }

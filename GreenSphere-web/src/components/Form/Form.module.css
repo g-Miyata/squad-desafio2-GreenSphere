@@ -1,7 +1,6 @@
 .formContainer {
-  width: 100%;
-  height: 100vh;
-  max-width: 28rem;
+  width: 28rem;
+  height: fit-content;
   background: none;
   display: flex;
   flex-direction: column;
@@ -15,6 +14,7 @@
   font-size: 0.75rem;
   font-weight: bold;
   letter-spacing: 0.1rem;
+  height: auto;
 }
 .formContainer label {
   font-family: 'Inter-semiBold';
@@ -38,7 +38,6 @@
   font-weight: bold;
 }
 .formGroup textarea {
-  min-width: 100%;
   min-height: 5rem;
   max-height: 6rem;
 }
@@ -53,7 +52,6 @@
   font-size: 0.7rem;
   font-family: 'Inter-Semibold';
   outline: none;
-  max-width: 100%;
 }
 
 .formGroup input:focus,
@@ -72,6 +70,7 @@
   border-radius: 0.25rem;
   margin-top: 2rem;
   width: 100%;
+  margin-bottom: 1rem;
 }
 
 .errorMessage {
@@ -102,7 +101,6 @@
   gap: 0.6rem;
 }
 
-/* Estilo básico do grupo de rádio */
 .formRadioGroup {
   display: flex;
   gap: 1rem;
@@ -124,4 +122,48 @@
 .radioInput:checked + p {
   color: #000;
   font-weight: bold;
+}
+/* Telas pequenas (até 480px) */
+@media (max-width: 480px) {
+  .formContainer {
+    margin-left: 0rem;
+    height: auto;
+    width: 20rem;
+  }
+  .submitBtn {
+    margin-bottom: 1rem;
+  }
+  .prices input {
+    width: 9.5rem;
+  }
+}
+
+/* Tablets (481px a 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .formContainer {
+    margin-left: 0rem;
+    height: auto;
+    width: 20rem;
+  }
+  .submitBtn {
+    margin-bottom: 1rem;
+  }
+  .prices input {
+    width: 9.5rem;
+  }
+}
+
+/* Laptops pequenos (769px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .formContainer {
+    margin-left: 0rem;
+    height: auto;
+    width: 20rem;
+  }
+  .submitBtn {
+    margin-bottom: 1rem;
+  }
+  .prices input {
+    width: 9.5rem;
+  }
 }

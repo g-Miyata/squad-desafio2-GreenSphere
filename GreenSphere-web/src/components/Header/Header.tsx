@@ -1,15 +1,25 @@
 import { NavLink } from 'react-router-dom';
 import { UserButton } from '@clerk/clerk-react';
+import { useState } from 'react';
 import logo from '../../assets/images/logo.svg';
 import style from './Header.module.css';
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <header className={style.header}>
       <div>
         <img src={logo} title="Green Sphere Logo" alt="Green Sphere Logo" />
       </div>
-      <nav>
+      <button className={style.menuButton} onClick={toggleMenu} aria-label="Toggle menu">
+        ☰
+      </button>
+      <nav className={`${style.nav} ${menuOpen ? style.open : ''}`}>
         <ul>
           <li>
             <NavLink className={({ isActive }) => `${style.navLink} ${isActive ? style.activeLink : ''}`} to="/">

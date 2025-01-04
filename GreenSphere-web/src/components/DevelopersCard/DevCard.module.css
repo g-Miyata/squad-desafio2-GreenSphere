@@ -123,7 +123,7 @@
   padding: 0.5rem;
 }
 .title p {
-  margin-bottom: 1rem;
+  margin-bottom: 0.55rem;
   color: #354733;
   font-size: 0.6rem;
   font-weight: bold;
@@ -166,4 +166,37 @@
 
 .links a:hover {
   color: #354733;
+}
+/* Telas pequenas (até 480px) */
+@media (max-width: 480px) {
+  .card {
+    width: 18rem;
+    height: 34rem;
+  }
+  .cardFront h1,
+  .cardBack h1 {
+    font-size: 2rem;
+    margin: 0.2rem 0;
+  }
+  .icon img {
+    width: 4rem;
+    height: auto;
+  }
+  .icon p {
+    font-size: 1rem;
+    color: #354733;
+    text-transform: uppercase;
+  }
+  .job img {
+    width: 3.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Tablets (481px a 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+}
+
+/* Laptops pequenos (769px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
 }

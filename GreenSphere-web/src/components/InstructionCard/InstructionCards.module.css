@@ -31,3 +31,89 @@
   font-size: 2rem;
   font-family: 'Lato-Regular';
 }
+
+@media (max-width: 480px) {
+  .container {
+    height: auto;
+    width: 100%;
+  }
+  .container h1 {
+    color: black;
+    font-size: 1.5rem;
+    font-family: 'Lato-Regular';
+  }
+  .imgContainer {
+    background-color: #354733;
+    padding: 1.4rem;
+    border-radius: 50%;
+    align-content: center;
+    display: flex;
+    margin-bottom: 1.8rem;
+  }
+  .imgContainer img {
+    height: 2rem;
+    width: 2rem;
+  }
+  .container p {
+    font-size: 0.8rem;
+    margin-top: 1rem;
+  }
+}
+
+/* Tablets (481px a 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    height: auto;
+    width: 100%;
+  }
+  .container h1 {
+    color: black;
+    font-size: 1.5rem;
+    font-family: 'Lato-Regular';
+  }
+  .imgContainer {
+    background-color: #354733;
+    padding: 1.4rem;
+    border-radius: 50%;
+    align-content: center;
+    display: flex;
+    margin-bottom: 1.8rem;
+  }
+  .imgContainer img {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+  .container p {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+/* Laptops pequenos (769px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    height: auto;
+    width: 100%;
+  }
+  .container h1 {
+    color: black;
+    font-size: 1.5rem;
+    font-family: 'Lato-Regular';
+  }
+  .imgContainer {
+    background-color: #354733;
+    padding: 1.4rem;
+    border-radius: 50%;
+    align-content: center;
+    display: flex;
+    margin-bottom: 1.8rem;
+  }
+  .imgContainer img {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+  .container p {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+}
