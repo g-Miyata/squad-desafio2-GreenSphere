@@ -20,7 +20,6 @@ const PlantSchema = z.object({
 
 type Plant = z.infer<typeof PlantSchema>;
 
-
 router.post('/', async (req, res) => {
   try {
     const validatedData = PlantSchema.parse(req.body);
@@ -34,7 +33,7 @@ router.post('/', async (req, res) => {
           },
         },
       },
-    }); 
+    });
 
     res.status(201).json(plant);
   } catch (error) {
@@ -42,7 +41,7 @@ router.post('/', async (req, res) => {
       res.status(400).json({ error: 'Dados inválidos', details: error.errors });
     } else {
       console.error('Erro ao criar a planta:', error); // Log do erro
-      res.status(500).json({ error: 'Erro ao criar   a planta' });
+      res.status(500).json({ error: 'Erro ao criar a planta' });
     }
   }
 });

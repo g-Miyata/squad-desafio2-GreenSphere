@@ -14,7 +14,7 @@ const Products: React.FC = () => {
   const { filteredPlants, setSearchTerm, setFilter } = usePlantFilters(data || []);
 
   if (loading) return <Loader />;
-  if (error) return <p>Erro: {error}</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div>
