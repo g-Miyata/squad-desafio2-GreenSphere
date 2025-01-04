@@ -123,7 +123,7 @@
   color: #000;
   font-weight: bold;
 }
-/* Telas pequenas (até 480px) */
+
 @media (max-width: 480px) {
   .formContainer {
     margin-left: 0rem;
@@ -138,7 +138,6 @@
   }
 }
 
-/* Tablets (481px a 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
   .formContainer {
     margin-left: 0rem;
@@ -153,7 +152,6 @@
   }
 }
 
-/* Laptops pequenos (769px a 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   .formContainer {
     margin-left: 0rem;

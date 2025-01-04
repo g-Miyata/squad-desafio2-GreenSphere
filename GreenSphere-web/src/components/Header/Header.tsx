@@ -22,22 +22,22 @@ const Header = () => {
       <nav className={`${style.nav} ${menuOpen ? style.open : ''}`}>
         <ul>
           <li>
-            <NavLink className={({ isActive }) => `${style.navLink} ${isActive ? style.activeLink : ''}`} to="/">
+            <NavLink onClick={toggleMenu} className={({ isActive }) => `${style.navLink} ${isActive ? style.activeLink : ''}`} to="/">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive }) => `${style.navLink} ${isActive ? style.activeLink : ''}`} to="/register">
+            <NavLink onClick={toggleMenu} className={({ isActive }) => `${style.navLink} ${isActive ? style.activeLink : ''}`} to="/register">
               Register
             </NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive }) => `${style.navLink} ${isActive ? style.activeLink : ''}`} to="/products">
+            <NavLink onClick={toggleMenu} className={({ isActive }) => `${style.navLink} ${isActive ? style.activeLink : ''}`} to="/products">
               Products
             </NavLink>
           </li>
           <li>
-            <NavLink className={({ isActive }) => `${style.navLink} ${isActive ? style.activeLink : ''}`} to="/about-us">
+            <NavLink onClick={toggleMenu} className={({ isActive }) => `${style.navLink} ${isActive ? style.activeLink : ''}`} to="/about-us">
               About Us
             </NavLink>
           </li>
