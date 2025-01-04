@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Plant } from './API/Plant.types';
+import { Plant } from '../types/Plant';
 
 const usePlantFilters = (plants: Plant[]) => {
   const [searchTerm, setSearchTerm] = useState('');

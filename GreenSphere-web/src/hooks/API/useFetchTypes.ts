@@ -11,10 +11,13 @@ const useFetchTypes = () => {
     try {
       setLoading(true);
       const types = await fetchTypes();
-      setData(types);
+      const uniqueTypes: Type[] = Array.from(new Map<string, Type>(types.map((type: Type) => [type.typeName, type])).values());
+
+      setData(uniqueTypes);
       setError(null);
     } catch (err: any) {
-      setError(err.message || 'Error fetching data');
+      console.error('Error fetching types:', err.message);
+      setError('Unable to load types. Please try again later.');
     } finally {
       setLoading(false);
     }

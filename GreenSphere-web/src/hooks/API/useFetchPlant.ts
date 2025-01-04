@@ -14,7 +14,7 @@ const useFetchPlant = (id: number | string) => {
       setData(plant);
       setError(null);
     } catch (err: any) {
-      setError(err.message || 'Error fetching data');
+      setError('Unable to load the plant. Please try again later.');
     } finally {
       setLoading(false);
     }

@@ -39,3 +39,8 @@ export const fetchTypes = async () => {
   const types = await api.get('/types');
   return types.data;
 };
+
+export const postPlant = async (plantData: Partial<Plant>) => {
+  const response = await api.post('/register', plantData);
+  return response.data;
+};

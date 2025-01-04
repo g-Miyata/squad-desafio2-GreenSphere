@@ -157,6 +157,9 @@
   background-color: #8a9b6e;
   border-color: #8a9b6e;
 }
+.text {
+  overflow: hidden;
+}
 @media (max-width: 480px) {
   .container {
     height: auto;
