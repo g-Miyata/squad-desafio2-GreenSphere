@@ -21,13 +21,16 @@
   width: 100%;
   padding: 0;
   margin: 0;
+  margin-bottom: 3rem;
 }
 
 .instructions header {
-  margin-top: 5.5rem;
+  margin-top: 4rem;
   flex-grow: 1;
 }
-
+.instructions header p {
+  margin-bottom: 4.5rem;
+}
 .cardsContainer {
   width: 100%;
   display: flex;
@@ -67,6 +70,9 @@
     align-items: center;
     flex-grow: 0;
   }
+  .instructions {
+    margin-bottom: 0;
+  }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -94,6 +100,9 @@
     align-items: center;
     flex-grow: 0;
   }
+  .instructions {
+    margin-bottom: 0;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -120,5 +129,8 @@
     justify-content: center;
     align-items: center;
     flex-grow: 0;
+  }
+  .instructions {
+    margin-bottom: 0;
   }
 }

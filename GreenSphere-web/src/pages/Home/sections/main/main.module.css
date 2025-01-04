@@ -13,7 +13,7 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-  padding-top: 10%;
+  padding-top: 8%;
   height: 100%;
 }
 
@@ -21,7 +21,6 @@
   margin: 0;
   align-self: left;
   margin-left: 6.5rem;
-  margin-bottom: 0.8rem;
   color: #87897d;
 }
 .home article {
@@ -53,10 +52,16 @@
   margin-left: 6.5rem;
 }
 .link p {
-  margin-bottom: 0.5rem;
+  margin-bottom: 4rem;
   color: #87897d;
 }
-
+.link a {
+  text-decoration: none;
+}
+.link a:hover {
+  font-weight: bold;
+  color: #8a9b6e;
+}
 @media (max-width: 480px) {
   .home {
     min-width: 100%;
@@ -66,6 +71,9 @@
   }
   .home button {
     padding: 1rem 2rem;
+  }
+  .link {
+    margin-left: 1rem;
   }
 }
 

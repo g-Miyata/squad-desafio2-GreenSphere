@@ -1,6 +1,7 @@
 import Titles from '../../../../components/Titles/Titles';
 import Button from '../../../../components/Button/Button';
 import style from './main.module.css';
+import { Link } from 'react-router-dom';
 const main = () => {
   return (
     <div>
@@ -15,11 +16,15 @@ const main = () => {
               <Titles titleText="Side" highlightText="" text={`We are your one-stop destination for all things green and growing. Our website\n offers a wide array of stunning plants, ranging from vibrant flowers to lush indoor\nfoliage, allowing you to create your very own green oasis.`} />
             </div>
             <div>
-              <Button text="Shop now" />
+              <a href="#bestSelling">
+                <Button text="Shop now" />
+              </a>
             </div>
           </article>
           <div className={style.link}>
-            <p>Learn Gardening &rarr; </p>
+            <a href="#instructions">
+              <p>Learn Gardening &rarr; </p>
+            </a>
           </div>
         </section>
       </section>
