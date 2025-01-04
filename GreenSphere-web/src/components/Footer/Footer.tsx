@@ -16,10 +16,10 @@ const Footer = () => {
           <div className={style.linksContainer}>
             <div className={style.links}>
               <h3>Links</h3>
-              <Link to="/aboutUs" className={style.none}>
+              <Link to="/about-us" className={style.none}>
                 About us
               </Link>
-              <Link to="/products" className={style.none}>
+              <Link to="/Products" className={style.none}>
                 Products
               </Link>
               <Link to="/blogs" className={style.none}>
@@ -29,7 +29,7 @@ const Footer = () => {
 
             <div className={style.community}>
               <h3>Community</h3>
-              <Link to="/aboutUs" className={style.none}>
+              <Link to="/about-us" className={style.none}>
                 About us
               </Link>
               <Link to="/Products" className={style.none}>

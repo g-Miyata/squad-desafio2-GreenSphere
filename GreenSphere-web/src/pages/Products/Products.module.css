@@ -186,7 +186,6 @@
   }
 }
 
-/* Tablets (481px a 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
   .container {
     height: auto;
@@ -217,7 +216,6 @@
   }
 }
 
-/* Laptops pequenos (769px a 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   .container {
     height: auto;

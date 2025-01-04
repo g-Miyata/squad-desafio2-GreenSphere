@@ -4,19 +4,20 @@
 }
 
 .welcome {
-  height: 80%;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  padding-top: 4.5rem;
 }
 
 .welcome img {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  margin-top: 20px;
+  width: 16rem;
+  height: 16rem;
+  margin-top: 1.25rem;
   box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.4);
   margin-bottom: 4rem;
 }
@@ -52,6 +53,105 @@
     opacity: 1;
   }
 }
+@media (max-width: 480px) {
+  .container {
+    height: 100vh;
+    min-width: 100%;
+    text-align: center;
+  }
+  .formContainer {
+    display: flex;
+    justify-content: center;
+  }
+  .welcome {
+    justify-content: start;
+    align-items: center;
+    padding-top: 3rem;
+  }
+  .welcome h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .welcome h2 {
+    font-size: 2rem;
+  }
+  .welcome h1,
+  .welcome h2 {
+    white-space: wrap;
+  }
+  .welcome img {
+    border-radius: 50%;
+    margin-top: 1.25rem;
+    width: 12rem;
+    height: 12rem;
+    margin-bottom: 2rem;
+  }
+}
 
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    height: 100vh;
+    min-width: 100%;
+    text-align: center;
+  }
+  .formContainer {
+    display: flex;
+    justify-content: center;
+  }
+  .welcome {
+    justify-content: start;
+    align-items: center;
+  }
+  .welcome h1 {
+    font-size: 3.5rem;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .welcome h2 {
+    font-size: 2.5rem;
+  }
+  .welcome h1,
+  .welcome h2 {
+    white-space: wrap;
+  }
+  .welcome img {
+    border-radius: 50%;
+    width: 14rem;
+    height: 14rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    height: 100vh;
+    min-width: 100%;
+    text-align: center;
+  }
+  .formContainer {
+    display: flex;
+    justify-content: center;
+  }
+  .welcome {
+    justify-content: start;
+    padding-top: 4rem;
+    align-items: center;
+  }
+  .welcome h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  .welcome h2 {
+    font-size: 3rem;
+  }
+  .welcome h1,
+  .welcome h2 {
+    white-space: wrap;
+  }
+  .welcome img {
+    border-radius: 50%;
+    width: 15rem;
+    height: 15rem;
+    margin-bottom: 2rem;
+  }
 }
