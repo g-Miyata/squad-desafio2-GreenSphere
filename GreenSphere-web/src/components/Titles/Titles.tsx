@@ -11,7 +11,7 @@ const Titles = ({ titleText, highlightText, text }: TextProps) => {
       {text && (
         <p className={styles.text}>
           {text.split('\n').map((line, index) => (
-            <span key={`line-${index}`}>
+            <span key={`line-${index}`} className={styles.lines}>
               {line}
               <br />
             </span>

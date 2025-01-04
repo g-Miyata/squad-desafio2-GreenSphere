@@ -28,3 +28,54 @@
   margin-left: 0;
   margin-bottom: 2.5rem;
 }
+
+@media (max-width: 480px) {
+  .container h1 {
+    font-size: 2rem;
+    white-space: wrap;
+    text-transform: capitalize;
+  }
+
+  .text {
+    font-size: 0.55rem;
+    white-space: nowrap;
+    margin-bottom: 2.5rem;
+  }
+  .lines {
+    white-space: wrap;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .container h1 {
+    font-size: 2.5rem;
+    white-space: nowrap;
+    text-transform: capitalize;
+  }
+
+  .text {
+    font-size: 0.8rem;
+    white-space: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .lines {
+    white-space: wrap;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container h1 {
+    font-size: 4rem;
+    white-space: nowrap;
+    text-transform: capitalize;
+  }
+
+  .text {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    margin-bottom: 2.5rem;
+  }
+  .lines {
+    white-space: wrap;
+  }
+}

@@ -1,5 +1,5 @@
 .container {
-  height: calc(100vh - 5.2rem);
+  height: calc(100vh - 3rem);
   padding: 0;
   margin: 0;
   background-image: url('../../assets/images/1bg-image-home.png');
@@ -7,4 +7,40 @@
   background-position: bottom right;
   background-repeat: no-repeat;
   min-width: 70rem;
+}
+
+/* Telas pequenas (até 480px) */
+@media (max-width: 480px) {
+  .container {
+    height: auto;
+    min-width: 100%;
+  }
+  .formContainer {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Tablets (481px a 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    height: auto;
+    min-width: 100%;
+  }
+  .formContainer {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Laptops pequenos (769px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    height: auto;
+    min-width: 100%;
+  }
+  .formContainer {
+    display: flex;
+    justify-content: center;
+  }
 }

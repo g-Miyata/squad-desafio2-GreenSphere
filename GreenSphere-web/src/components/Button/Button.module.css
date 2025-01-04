@@ -12,3 +12,26 @@
   transition: ease-in 0.3s;
   cursor: pointer;
 }
+
+@media (max-width: 480px) {
+  .button {
+    font-size: 0.7rem;
+    white-space: nowrap;
+    padding: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .button {
+    font-size: 0.7rem;
+    white-space: nowrap;
+    padding: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+}

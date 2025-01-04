@@ -1,5 +1,5 @@
 .container {
-  height: calc(100vh - 5.2rem);
+  height: 100vh;
   background-color: #f1f2ef;
 }
 
@@ -51,4 +51,7 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+@media (max-width: 768px) {
 }

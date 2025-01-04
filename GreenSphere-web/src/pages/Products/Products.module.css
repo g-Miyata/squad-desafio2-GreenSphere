@@ -40,7 +40,7 @@
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -103,7 +103,6 @@
 }
 
 .searchBar {
-  width: 100%;
   width: 25rem;
   padding: 0.625rem 0.9375rem;
   font-size: 1rem;
@@ -157,4 +156,71 @@
 .filterGroup input[type='radio']:checked {
   background-color: #8a9b6e;
   border-color: #8a9b6e;
+}
+@media (max-width: 480px) {
+  .container {
+    height: auto;
+    min-width: 100%;
+  }
+  .searchBar {
+    width: 100%;
+    width: 15rem;
+  }
+  .cardBody {
+    gap: 0rem;
+    height: 16rem;
+    width: 7rem;
+  }
+  .cardBody p {
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem;
+  }
+  .text {
+    flex-grow: 1;
+  }
+  .label {
+    display: none;
+  }
+  .contentContainer {
+    padding: 0.5rem;
+  }
+}
+
+/* Tablets (481px a 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    height: auto;
+    min-width: 100%;
+  }
+
+  .searchBar {
+    width: 100%;
+    width: 15rem;
+  }
+  .cardBody {
+    gap: 0rem;
+    height: 16rem;
+    width: 7rem;
+  }
+  .cardBody p {
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem;
+  }
+  .text {
+    flex-grow: 1;
+  }
+  .label {
+    display: none;
+  }
+  .contentContainer {
+    padding: 0.5rem;
+  }
+}
+
+/* Laptops pequenos (769px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    height: auto;
+    min-width: 100%;
+  }
 }

@@ -20,7 +20,8 @@
   width: 28%;
   min-width: 20rem;
   height: 100%;
-  border-radius: 2rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
   background: radial-gradient(circle at center, rgba(2, 117, 2, 0.8), rgba(213, 213, 213, 0.3));
   background-size: 100%;
   display: flex;
@@ -42,6 +43,13 @@
   background-size: 200%;
 }
 
+.logo,
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .content button {
   background-color: rgba(106, 138, 103, 0.7);
   font-size: 1rem;
@@ -56,4 +64,51 @@
 .content button:hover {
   background-color: #2b4e24;
   transition: ease-in 0.3s;
+}
+
+@media (max-width: 768px) {
+  .container {
+    align-items: start;
+  }
+  .content {
+    width: 100%;
+    min-width: 20rem;
+    padding: 1rem;
+    height: fit-content;
+    border-top-right-radius: 0rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    background: radial-gradient(circle at center, rgba(2, 117, 2, 0.8), rgba(213, 213, 213, 0.3));
+    background-size: 100%;
+    display: flex;
+    gap: 0.5rem;
+    white-space: nowrap;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    transition: background-size 0.6s ease-in-out, background-color 0.6s ease-in-out;
+    font-family: 'OdinRounded-Bold';
+  }
+  .content h1 {
+    font-size: 2rem;
+  }
+  .content p {
+    font-size: 1rem;
+  }
+  .content button {
+    background-color: rgba(106, 138, 103, 0.7);
+    font-size: 1rem;
+    border-radius: 2rem;
+    color: #fff;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    padding: 1.2rem 3rem 1.2rem 3rem;
+    border: none;
+  }
+  .logo {
+    display: flex;
+    flex-direction: row;
+  }
 }

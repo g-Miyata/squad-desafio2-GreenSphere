@@ -8,9 +8,13 @@ const SignInPage = () => {
       <video autoPlay muted loop src={video} />
       <div className={style.content}>
         <p>Welcome!</p>
-        <img src={logo} alt="Green Sphere Logo" />
-        <h1>Green Sphere</h1>
-        <p>Log in to access the store</p>
+        <div className={style.logo}>
+          <img src={logo} alt="Green Sphere Logo" />
+          <div className={style.text}>
+            <h1>Green Sphere</h1>
+            <p>Log in to access the store</p>
+          </div>
+        </div>
         <SignInButton mode="modal" forceRedirectUrl="/welcome">
           <button>Login</button>
         </SignInButton>
