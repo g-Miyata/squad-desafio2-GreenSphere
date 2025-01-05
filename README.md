@@ -707,7 +707,3 @@ To maintain a consistent codebase, please follow these guidelines:
 - [🔀 React Router](https://reactrouter.com/home)
 - [📝 Commit pattern](https://www.conventionalcommits.org/en/v1.0.0/)
 - [🤝 Team Workflow Instructions on Github](./INFO.md)
-
-```
-
-```
