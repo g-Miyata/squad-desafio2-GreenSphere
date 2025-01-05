@@ -192,3 +192,31 @@
     margin-bottom: 0.5rem;
   }
 }
+
+@media (max-width: 1400px) {
+  .card {
+    width: 18rem;
+    height: 34rem;
+  }
+  .cardFront h1,
+  .cardBack h1 {
+    font-size: 2rem;
+    margin: 0.2rem 0;
+  }
+  .icon img {
+    width: 4rem;
+    height: auto;
+  }
+  .icon p {
+    font-size: 1rem;
+    color: #354733;
+    text-transform: uppercase;
+  }
+  .job img {
+    width: 3.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .info h1 {
+    font-size: 1.5rem;
+  }
+}

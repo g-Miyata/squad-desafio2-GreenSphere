@@ -44,10 +44,10 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1400px) {
   .container {
     height: auto;
     min-width: 100%;
-    gap: 4rem;
+    gap: 2rem;
   }
 }

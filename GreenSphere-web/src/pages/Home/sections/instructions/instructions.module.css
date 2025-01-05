@@ -7,7 +7,7 @@
   margin: 0;
   min-width: 70rem;
   background-color: #fcfcfc;
-  padding-bottom: 10rem;
+  padding-bottom: 4rem;
 }
 
 .instructions {
@@ -34,7 +34,7 @@
 .cardsContainer {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-around;
   flex-grow: 2;
 }
@@ -105,7 +105,7 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1090px) {
   .container {
     min-width: 100%;
     height: auto;
@@ -132,5 +132,8 @@
   }
   .instructions {
     margin-bottom: 0;
+  }
+  .cardBtn button {
+    padding: 0.5;
   }
 }

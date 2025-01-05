@@ -1,9 +1,13 @@
-[JAVASCRIPT__BADGE]: https://img.shields.io/badge/Javascript-000?style=for-the-badge&logo=javascript
+[JAVASCRIPT__BADGE]: https://img.shields.io/badge/JavaScript-000?style=for-the-badge&logo=javascript
 [TYPESCRIPT__BADGE]: https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white
 [REACT__BADGE]: https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black
-[CSS3__BADGE]: https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white
-[HTML5__BADGE]: https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white
+[CSS3__BADGE]: https://img.shields.io/badge/CSS3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white
+[PRISMA__BADGE]: https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white
+[SQLITE__BADGE]: https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white
+[VITE__BADGE]: https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white
+[CLERK__BADGE]: https://img.shields.io/badge/Clerk-3F4451?style=for-the-badge&logo=clerk&logoColor=white
 
+<p align="center"> <img src="./GreenSphere-web/src/assets/images/logo.svg" alt="main section" width="100px" >
 <h1 align="center" style="font-weight: bold;">Green Sphere Store</h1>
 <div align="center">
 
@@ -11,7 +15,12 @@
 ![TYPESCRIPT][TYPESCRIPT__BADGE]
 ![REACT][REACT__BADGE]
 ![CSS3][CSS3__BADGE]
-![HTML5][HTML5__BADGE]
+![PRISMA][PRISMA__BADGE]
+![SQLITE][SQLITE__BADGE]
+![VITE][VITE__BADGE]
+![CLERK][CLERK__BADGE]
+
+</div>
 
 </div>
 <p align="center">
@@ -83,26 +92,26 @@ This folder contains the frontend of the GreenSphere Store, a web application bu
 
 ```plaintext
 GreenSphere-web/
-├── node_modules/ # Installed npm packages
-├── public/ # Static files (e.g., images, favicon)
-├── src/ # Source code
-│ ├── assets/ # Static assets used in the project (e.g., images, fonts)
-│ ├── components/ # Reusable React components
-│ ├── hooks/ # Custom React hooks
-│ ├── pages/ # Pages of the application (e.g., Home, Register)
-│ ├── schemas/ # Zod schemas for form validation
-│ ├── services/ # API calls and service logic
-│ ├── types/ # TypeScript type definitions
-│ ├── App.tsx # Main App component
-│ ├── App.css # Global CSS for the App component
-│ ├── index.css # Global styles
-│ ├── main.tsx # Entry point of the React application
-│ └── vite-env.d.ts # Vite environment types
-├── index.html # Main HTML file for the app
-├── package.json # Project dependencies and scripts
-├── tsconfig.app.json # TypeScript configuration for the app
-├── tsconfig.json # Main TypeScript configuration
-└── vite.config.ts # Vite configuration file
+├── node_modules/         # Installed npm packages
+├── public/               # Static files (e.g., images, favicon)
+├── src/                  # Source code
+│ ├── assets/             # Static assets used in the project (e.g., images, fonts)
+│ ├── components/         # Reusable React components
+│ ├── hooks/              # Custom React hooks
+│ ├── pages/              # Pages of the application (e.g., Home, Register)
+│ ├── schemas/            # Zod schemas for form validation
+│ ├── services/           # API calls and service logic
+│ ├── types/              # TypeScript type definitions
+│ ├── App.tsx             # Main App component
+│ ├── App.css             # Global CSS for the App component
+│ ├── index.css           # Global styles
+│ ├── main.tsx            # Entry point of the React application
+│ └── vite-env.d.ts       # Vite environment types
+├── index.html            # Main HTML file for the app
+├── package.json          # Project dependencies and scripts
+├── tsconfig.app.json     # TypeScript configuration for the app
+├── tsconfig.json         # Main TypeScript configuration
+└── vite.config.ts        # Vite configuration file
 ```
 
 **Notes**
@@ -210,7 +219,21 @@ cd GreenSphere-api
 npm install
 ```
 
-3. **Start the development server:**
+3. **Initialize Prisma Client**
+
+- rename the archive env.example for .env:
+
+  <img src="./GreenSphere-web/src/assets/images/env.png" >
+
+- run:
+
+```bash
+npx prisma generate
+```
+
+- install prisma packages.
+
+4. **Start the development server:**
 
 ```bash
 npm run dev
@@ -337,7 +360,8 @@ npm run dev
 
 #### GET `/plants`
 
-- **Request Payload:**
+- **Request Payload: (No body required)**
+- **Response Payload:**
 
   ```json
   [
@@ -385,7 +409,8 @@ npm run dev
 
 #### GET `/plants/:id` for id: 1
 
-- **Request Payload:**
+- **Request Payload: (No body required)**
+- **Response Payload:**
 
   ```json
   {
@@ -405,7 +430,8 @@ npm run dev
 
 #### DELETE `/plants/:id` for id: 1
 
-- **Request Payload:**
+- **Request Payload: (No body required)**
+- **Response Payload:**
 
   ```json
   {
@@ -425,7 +451,7 @@ npm run dev
 
 #### POST `/register`
 
-- **Response Payload:**
+- **Request Payload:**
 
   ```json
   {
@@ -442,9 +468,28 @@ npm run dev
   }
   ```
 
+- **Response Payload:**
+
+  ```json
+  {
+    "id": 1,
+    "name": "Echinocereus Cactus",
+    "subtitle": "A Majestic Addition to Your Plant Collection",
+    "price": 139.99,
+    "isInSale": true,
+    "label": "Indoor",
+    "discountPercentage": 20,
+    "features": "Species: Echinocereus spp. Mature Size: 10-30cm.",
+    "description": "A beautiful indoor cactus.",
+    "type": 1,
+    "imgUrl": "defaultImg.png" //this feature is not yet implemented, so it is not necessary to enter a url for the registration, the field is defined by a default image
+  }
+  ```
+
 #### GET `/types`
 
-- **Response Payload:**
+- **Request Payload: (No body required)**
+- **Request Payload:**
 
   ```json
   [
@@ -484,7 +529,7 @@ When sending data to the `/plants` endpoint (POST), the following validation rul
 
 </p>
 
-**3. Errors and Responses**
+**3. Errors Responses**
 
 <p>When interacting with the API, different status codes are returned based on the outcome of the request. Below is a list of possible status codes and their meanings:</p>
 
@@ -666,3 +711,7 @@ To maintain a consistent codebase, please follow these guidelines:
 - [🔀 React Router](https://reactrouter.com/home)
 - [📝 Commit pattern](https://www.conventionalcommits.org/en/v1.0.0/)
 - [🤝 Team Workflow Instructions on Github](./INFO.md)
+
+```
+
+```

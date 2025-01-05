@@ -98,10 +98,11 @@
     gap: 1rem;
     margin: 0;
     height: auto;
+    flex-wrap: nowrap;
   }
 
   .imgCardsContainer div {
-    max-width: 90%;
+    max-width: 80%;
     max-height: 20%;
   }
   .cardsContainer {
@@ -117,47 +118,54 @@
   }
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 1219px) {
   .outdoor {
-    padding-bottom: 1rem;
+    padding-bottom: 5rem;
   }
-  .imgCardsContainer {
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    gap: 1rem;
-    margin: 0;
-    height: auto;
-  }
-
-  .imgCardsContainer div {
-    width: 90%;
-    height: 20%;
-  }
-
-  .cardTxt {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
-  .cardBtn button {
-    padding: 0.8rem 0.5rem;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
   .imgCardsContainer {
     flex-direction: row;
     justify-content: center;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 4rem;
   }
 
   .imgCardsContainer div {
-    max-width: 80%rem;
+    width: 20rem;
+    height: 38em;
   }
 
-  .cardTxt {
-    font-size: 0.95rem;
+  .cardTxt p {
+    font-size: 0.8rem;
     line-height: 1.8;
+  }
+  .cardBtn button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 1220px) and (max-width: 1450px) {
+  .outdoor {
+    padding-bottom: 5rem;
+  }
+  .imgCardsContainer {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 4rem;
+  }
+
+  .imgCardsContainer div {
+    width: 20rem;
+    height: 38em;
+  }
+
+  .cardTxt p {
+    font-size: 0.8rem;
+    line-height: 1.8;
+  }
+  .cardBtn button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.8rem;
   }
 }
