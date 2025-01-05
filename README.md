@@ -221,10 +221,6 @@ npm install
 
 3. **Initialize Prisma Client**
 
-- rename the archive env.example for .env:
-
-  <img src="./GreenSphere-web/src/assets/images/env.png" >
-
 - run:
 
 ```bash
