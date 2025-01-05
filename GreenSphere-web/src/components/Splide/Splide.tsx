@@ -57,7 +57,7 @@ const ImageCarousel: FC<CarouselProps> = ({ type }) => {
               </div>
               <div className={style.label}>
                 <Label text={plant.label} />
-                <Label text={plant.plantType} />
+                <Label text={plant.plantType || ''} />
               </div>
             </div>
           </Link>

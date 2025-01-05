@@ -88,7 +88,7 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1400px) {
   .container {
     height: auto;
     width: 100%;
@@ -106,10 +106,7 @@
     display: flex;
     margin-bottom: 1.8rem;
   }
-  .imgContainer img {
-    height: 2.5rem;
-    width: 2.5rem;
-  }
+
   .container p {
     font-size: 1rem;
     margin-top: 1rem;

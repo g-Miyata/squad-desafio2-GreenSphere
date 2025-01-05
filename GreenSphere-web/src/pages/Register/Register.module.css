@@ -1,5 +1,5 @@
 .container {
-  height: calc(100vh - 3rem);
+  height: auto;
   padding: 0;
   margin: 0;
   background-image: url('../../assets/images/1bg-image-home.png');
@@ -7,6 +7,9 @@
   background-position: bottom right;
   background-repeat: no-repeat;
   min-width: 70rem;
+}
+.formContainer {
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 480px) {
