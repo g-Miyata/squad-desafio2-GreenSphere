@@ -56,37 +56,39 @@ This folder contains the frontend of the GreenSphere Store, a web application bu
 - Vite: ^6.0.5
 
 **Dependencies**
-| Dependency | Version | Description |
-|-----------------------------------------------|-----------|-----------------------------------------------------------|
-| @clerk/clerk-react | ^5.21.0 | Clerk authentication library for React. |
-| @clerk/elements | ^0.22.5 | UI components for Clerk authentication. |
-| @hookform/resolvers | ^3.9.1 | Validation resolvers for React Hook Form. |
-| @splidejs/react-splide | ^0.7.12 | React wrapper for Splide.js carousel library. |
-| @splidejs/splide | ^4.1.4 | Core Splide.js carousel library. |
-| @splidejs/splide-extension-auto-scroll | ^0.5.3 | Auto-scroll extension for Splide.js. |
-| axios | ^1.7.9 | Promise-based HTTP client for API calls. |
-| react | ^18.3.1 | Core React library. |
-| react-dom | ^18.3.1 | React library for DOM rendering. |
-| react-hook-form | ^7.54.2 | Library for building performant forms in React. |
-| react-icons | ^5.4.0 | Popular icon library for React. |
-| react-router-dom | ^7.1.1 | React Router library for navigation. |
-| zod | ^3.24.1 | Schema validation library for TypeScript and JavaScript. |
+
+| Dependency                                        | Version | Description                                              |
+| ------------------------------------------------- | ------- | -------------------------------------------------------- |
+| <kbd>@clerk/clerk-react</kbd>                     | ^5.21.0 | Clerk authentication library for React.                  |
+| <kbd>@clerk/elements</kbd>                        | ^0.22.5 | UI components for Clerk authentication.                  |
+| <kbd>@hookform/resolvers</kbd>                    | ^3.9.1  | Validation resolvers for React Hook Form.                |
+| <kbd>@splidejs/react-splide</kbd>                 | ^0.7.12 | React wrapper for Splide.js carousel library.            |
+| <kbd>@splidejs/splide</kbd>                       | ^4.1.4  | Core Splide.js carousel library.                         |
+| <kbd>@splidejs/splide-extension-auto-scroll</kbd> | ^0.5.3  | Auto-scroll extension for Splide.js.                     |
+| <kbd>axios</kbd>                                  | ^1.7.9  | Promise-based HTTP client for API calls.                 |
+| <kbd>react</kbd>                                  | ^18.3.1 | Core React library.                                      |
+| <kbd>react-dom</kbd>                              | ^18.3.1 | React library for DOM rendering.                         |
+| <kbd>react-hook-form</kbd>                        | ^7.54.2 | Library for building performant forms in React.          |
+| <kbd>react-icons</kbd>                            | ^5.4.0  | Popular icon library for React.                          |
+| <kbd>react-router-dom</kbd>                       | ^7.1.1  | React Router library for navigation.                     |
+| <kbd>zod</kbd>                                    | ^3.24.1 | Schema validation library for TypeScript and JavaScript. |
 
 **Develop Dependencies**
-| Dev Dependency | Version | Description |
-|-----------------------------|-----------|-----------------------------------------------|
-| @eslint/js | ^9.17.0 | ESLint core library for linting JavaScript and TypeScript. |
-| @types/node | ^22.10.5 | TypeScript types for Node.js. |
-| @types/react | ^18.3.18 | TypeScript types for React. |
-| @types/react-dom | ^18.3.5 | TypeScript types for React DOM. |
-| @vitejs/plugin-react | ^4.3.4 | Vite plugin for React support. |
-| eslint | ^9.17.0 | ESLint core for linting JavaScript and TypeScript. |
-| eslint-plugin-react-hooks | ^5.0.0 | ESLint rules for React Hooks. |
-| eslint-plugin-react-refresh | ^0.4.16 | ESLint plugin for React Refresh. |
-| globals | ^15.14.0 | Global variables for ESLint. |
-| patch-package | ^8.0.0 | Tool to patch npm package files. |
-| typescript | ~5.6.2 | TypeScript compiler. |
-| vite | ^6.0.5 | Modern front-end build tool. |
+
+| Dev Dependency                         | Version  | Description                                                |
+| -------------------------------------- | -------- | ---------------------------------------------------------- |
+| <kbd>@eslint/js</kbd>                  | ^9.17.0  | ESLint core library for linting JavaScript and TypeScript. |
+| <kbd>@types/node</kbd>                 | ^22.10.5 | TypeScript types for Node.js.                              |
+| <kbd>@types/react</kbd>                | ^18.3.18 | TypeScript types for React.                                |
+| <kbd>@types/react-dom</kbd>            | ^18.3.5  | TypeScript types for React DOM.                            |
+| <kbd>@vitejs/plugin-react</kbd>        | ^4.3.4   | Vite plugin for React support.                             |
+| <kbd>eslint</kbd>                      | ^9.17.0  | ESLint core for linting JavaScript and TypeScript.         |
+| <kbd>eslint-plugin-react-hooks</kbd>   | ^5.0.0   | ESLint rules for React Hooks.                              |
+| <kbd>eslint-plugin-react-refresh</kbd> | ^0.4.16  | ESLint plugin for React Refresh.                           |
+| <kbd>globals</kbd>                     | ^15.14.0 | Global variables for ESLint.                               |
+| <kbd>patch-package</kbd>               | ^8.0.0   | Tool to patch npm package files.                           |
+| <kbd>typescript</kbd>                  | ~5.6.2   | TypeScript compiler.                                       |
+| <kbd>vite</kbd>                        | ^6.0.5   | Modern front-end build tool.                               |
 
 **Folder Structure**
 
@@ -130,23 +132,23 @@ This folder contains the backend API for the GreenSphere project. It handles ser
 
 **Dependencies**
 
-| Dependency     | Version | Description                                                   |
-| -------------- | ------- | ------------------------------------------------------------- |
-| @prisma/client | ^6.1.0  | Prisma ORM client for database interactions.                  |
-| cors           | ^2.8.5  | Middleware for enabling Cross-Origin Resource Sharing (CORS). |
-| express        | ^4.21.2 | Web framework for building APIs.                              |
-| zod            | ^3.24.1 | Schema validation library for request payloads.               |
+| Dependency                | Version | Description                                                   |
+| ------------------------- | ------- | ------------------------------------------------------------- |
+| <kbd>@prisma/client</kbd> | ^6.1.0  | Prisma ORM client for database interactions.                  |
+| <kbd>cors</kbd>           | ^2.8.5  | Middleware for enabling Cross-Origin Resource Sharing (CORS). |
+| <kbd>express</kbd>        | ^4.21.2 | Web framework for building APIs.                              |
+| <kbd>zod</kbd>            | ^3.24.1 | Schema validation library for request payloads.               |
 
 **Develop Dependencies**
 
-| Dev Dependency | Version | Description                                                         |
-| -------------- | ------- | ------------------------------------------------------------------- |
-| @types/cors    | ^2.8.17 | TypeScript types for CORS.                                          |
-| @types/express | ^5.0.0  | TypeScript types for Express.                                       |
-| nodemon        | ^3.1.9  | Tool for automatically restarting the server during development.    |
-| ts-node        | ^10.9.2 | TypeScript execution environment for Node.js.                       |
-| ts-node-dev    | ^2.0.0  | Enhanced development environment for TypeScript with hot-reloading. |
-| typescript     | ^5.7.2  | TypeScript compiler.                                                |
+| Dev Dependency            | Version | Description                                                         |
+| ------------------------- | ------- | ------------------------------------------------------------------- |
+| <kbd>@types/cors</kbd>    | ^2.8.17 | TypeScript types for CORS.                                          |
+| <kbd>@types/express</kbd> | ^5.0.0  | TypeScript types for Express.                                       |
+| <kbd>nodemon</kbd>        | ^3.1.9  | Tool for automatically restarting the server during development.    |
+| <kbd>ts-node</kbd>        | ^10.9.2 | TypeScript execution environment for Node.js.                       |
+| <kbd>ts-node-dev</kbd>    | ^2.0.0  | Enhanced development environment for TypeScript with hot-reloading. |
+| <kbd>typescript</kbd>     | ^5.7.2  | TypeScript compiler.                                                |
 
 **Folder Structure**
 
