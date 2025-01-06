@@ -90,7 +90,6 @@ This folder contains the frontend of the GreenSphere Store, a web application bu
 | <kbd>typescript</kbd>                  | <kbd>~5.6.2</kbd>   | TypeScript compiler.                                       |
 | <kbd>vite</kbd>                        | <kbd>^6.0.5</kbd>   | Modern front-end build tool.                               |
 
-<kbd>
 **Folder Structure**
 
 ```plaintext
@@ -553,6 +552,7 @@ When sending data to the `/plants` endpoint (POST), the following validation rul
 1. `Model Plant`
 
 </p>
+
 <p align="center">
 
 | **Field**            | **Type**                                            | **Description**                                                 |
@@ -684,10 +684,13 @@ To maintain a consistent codebase, please follow these guidelines:
 - **Code Standards:** Adhere to the existing coding style (e.g., indentation, naming conventions).
 
 - **Commit Messages:** Use meaningful commit messages in the format:
+
   ```bash
    type: short description
   ```
+
   **Examples:**
+
 - `fix: correct button alignment on mobile`
 
 - `feat: add new user profile page`
