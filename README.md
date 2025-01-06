@@ -682,6 +682,7 @@ Contributions are always welcome! Follow the steps below to contribute to this p
 To maintain a consistent codebase, please follow these guidelines:
 
 - **Code Standards:** Adhere to the existing coding style (e.g., indentation, naming conventions).
+
 - **Commit Messages:** Use meaningful commit messages in the format:
   ```bash
    type: short description
@@ -694,6 +695,7 @@ To maintain a consistent codebase, please follow these guidelines:
 - `docs: update README.md`
 
 - **Documentation:** If your changes add or modify functionality, update the documentation accordingly.
+
 - **Pull Request Checklist:**
 
   - Make sure your branch is up-to-date with the `main` branch.
