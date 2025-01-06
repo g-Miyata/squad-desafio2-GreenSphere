@@ -2,8 +2,14 @@ import { z } from 'zod';
 import { fetchTypes } from '../services/plantsService';
 import { Type } from '../services/plantsTypes';
 
-const types = await fetchTypes();
-export const validPlantTypeIds = types.map((type: Type) => type.id);
+let validPlantTypeIds: number[] = [];
+
+try {
+  const types = await fetchTypes();
+  validPlantTypeIds = types.map((type: Type) => type.id);
+} catch (error) {
+  validPlantTypeIds = [];
+}
 
 export const formSchema = z.object({
   name: z.string().min(3, 'The plant name must have at least 3 characters.').max(40, 'The plant name must have at most 40 characters.'),

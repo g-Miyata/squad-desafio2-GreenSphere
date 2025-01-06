@@ -4,8 +4,8 @@ import style from './main.module.css';
 
 const main = () => {
   return (
-    <div>
-      <section className={style.home}>
+    <div className={style.home}>
+      <section className={style.bgImg}>
         <section>
           <article>
             <div>

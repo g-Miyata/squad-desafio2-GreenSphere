@@ -5,10 +5,11 @@ import Button from '../Button/Button';
 import usePostPlants from '../../hooks/API/usePostPlant';
 import defaultImg from '../../assets/images/default.png';
 import useFetchTypes from '../../hooks/API/useFetchTypes';
+import Loader from '../Loader/Loader';
 
 const Form = () => {
   const { register, handleSubmit, reset, errors } = useForms();
-  const { data: types, error } = useFetchTypes();
+  const { data: types, error, loading } = useFetchTypes();
   const { submitPlant, isSubmitting, message } = usePostPlants();
 
   const onSubmit = async (data: FormSchema) => {
@@ -26,7 +27,9 @@ const Form = () => {
       console.error('Error submitting the plant:', error);
     }
   };
-
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.formContainer}>
       <header>
