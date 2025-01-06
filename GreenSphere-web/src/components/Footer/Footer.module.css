@@ -91,7 +91,7 @@
   text-align: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .container {
     height: auto;
     min-width: 100%;
@@ -147,58 +147,5 @@
   }
   .community {
     margin-right: 0;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .container {
-    height: auto;
-    min-width: 100%;
-  }
-
-  .container section {
-    margin-top: 2rem;
-  }
-  .footerContent {
-    align-items: center;
-  }
-  .contact h1 {
-    font-size: 3rem;
-  }
-
-  .footerContent {
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
-
-  .linksContainer {
-    gap: 4rem;
-  }
-  .links,
-  .community {
-    gap: 1rem;
-    align-items: center;
-  }
-
-  .footerBottom {
-    text-align: center;
-    align-items: center;
-    padding-right: 2rem;
-    padding-left: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .footerBottom p {
-    font-size: 0.6rem;
-  }
-  .footerBottom img {
-    width: 2rem;
-  }
-
-  .footerLine {
-    padding-right: 2rem;
-    padding-left: 2rem;
-    margin-bottom: 1rem;
-    margin-top: 2rem;
   }
 }
