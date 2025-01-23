@@ -1,3 +1,3 @@
 export interface LabelProps {
-  text: string;
+  text: string | undefined;
 }

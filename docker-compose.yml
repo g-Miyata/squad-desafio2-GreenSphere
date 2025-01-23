@@ -1,0 +1,33 @@
+services:
+  api:
+    container_name: api-store
+    build: ./GreenSphere-api
+    restart: always
+    ports:
+      - 3000:3000
+    env_file:
+      - ./GreenSphere-api/.env
+
+  web:
+    container_name: web-store
+    build: ./GreenSphere-web
+    depends_on:
+      - api
+    env_file:
+      - ./GreenSphere-web/.env
+    volumes:
+      - web-volume:/var/www/html
+
+  nginx:
+    container_name: nginx-store
+    build: ./nginx
+    ports:
+      - 80:80
+    volumes:
+      - web-volume:/var/www/html
+    depends_on:
+      - api
+      - web
+
+volumes:
+  web-volume:
