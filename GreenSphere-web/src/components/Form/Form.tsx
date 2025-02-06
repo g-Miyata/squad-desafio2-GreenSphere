@@ -3,15 +3,17 @@ import { FormSchema } from '../../schemas/formSchema';
 import style from './Form.module.css';
 import Button from '../Button/Button';
 import usePostPlants from '../../hooks/API/usePostPlant';
-import defaultImg from '../../assets/images/default.png';
 import useFetchTypes from '../../hooks/API/useFetchTypes';
 import Loader from '../Loader/Loader';
 
 const Form = () => {
-  const { register, handleSubmit, reset, errors } = useForms();
+  const { register, handleSubmit, reset, errors, loadingSchema, defaultImg } = useForms();
   const { data: types, error, loading } = useFetchTypes();
   const { submitPlant, isSubmitting, message } = usePostPlants();
 
+  if (loadingSchema) {
+    return <Loader />;
+  }
   const onSubmit = async (data: FormSchema) => {
     const postData = {
       ...data,
@@ -50,12 +52,12 @@ const Form = () => {
         <label htmlFor="type-select">Plant type {errors.typeId && <small className={style.errorMessage}>{errors.typeId.message}</small>} </label>
         <select
           id="type-select"
-          defaultValue=""
+          defaultValue="-1"
           {...register('typeId', {
             valueAsNumber: true,
           })}
         >
-          <option value="" disabled className={style.option}>
+          <option value="-1" disabled className={style.option}>
             -- Select a Type --
           </option>
           {types.map((type) => (
